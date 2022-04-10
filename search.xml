@@ -1,241 +1,808 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Gridea静态博客教程</title>
-      <link href="/2021/09/12/gridea/"/>
-      <url>/2021/09/12/gridea/</url>
-      
-        <content type="html"><![CDATA[<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>本文于2021.09.03在小黑盒发布：<a href="https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?link_id=67733262" target="_blank" rel="noopener">https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?link_id=67733262</a></p><p> 先给大家简单的介绍一下吧，Gridea是一个静态博客写作客户端，相较于其他主流的静态博客，比如用hexo搭建的本站，它更简单更容易上手，只需要了解一点点Markdown的语法进行写作就可以，这就意味着哪怕是完全没有接触过这方面的人也能够在短短几分钟之内搭建一个自己的博客。<br>​ 那么下面就是具体操作的步骤！</p><h5 id="一、确定托管代码的平台"><a href="#一、确定托管代码的平台" class="headerlink" title="一、确定托管代码的平台"></a>一、确定托管代码的平台</h5><p> Gridea是可以将博客部署到Github、Coding和自己的服务器上的。但是很明显，服务器要花钱，选择建静态博客的大部分人，还是因为不想花非刚需的钱去买主机或者服务器。而Coding新版也是要收费的，虽然也不贵而且还有六个月的试用期，但是想要用它的pages服务还需要实名认证，这也相对繁琐。因此我推荐将博客部署到github。往下的教程也是以Github为例。</p><h5 id="二、注册Github账号并创建仓库"><a href="#二、注册Github账号并创建仓库" class="headerlink" title="二、注册Github账号并创建仓库"></a>二、注册Github账号并创建仓库</h5><h6 id="1、注册Github账号"><a href="#1、注册Github账号" class="headerlink" title="1、注册Github账号"></a>1、注册Github账号</h6><p>如果你没有Github的账号，那么可以进入官网开始注册（注意一下用户名的填写，如果不使用自定义域名，用户名将会是你的Github分配给你的域名，比如你的用户名为xxx，那么你的域名会是xxx.github,io）。</p><pre><code>Github官网：https://github.com </code></pre><h6 id="2、新建仓库"><a href="#2、新建仓库" class="headerlink" title="2、新建仓库"></a>2、新建仓库</h6><p>如图所示，点击右上角的“+”号，然后点击“New respository”即可。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031041028.png" alt="image-20210903104124892" loading="lazy"></p><h6 id="3、配置仓库"><a href="#3、配置仓库" class="headerlink" title="3、配置仓库"></a>3、配置仓库</h6><p> 这里推荐仓库名填写格式为：”用户名.github.io“。</p><p> 然后点击”Add a README file“，再点击”Create repository“即可。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031112516.png" alt="image-20210903111250432" loading="lazy"></p><h6 id="4、点击仓库的”Settings“，进入”pages“。"><a href="#4、点击仓库的”Settings“，进入”pages“。" class="headerlink" title="4、点击仓库的”Settings“，进入”pages“。"></a>4、点击仓库的”Settings“，进入”pages“。</h6><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031114786.png" alt="image-20210903111403711" loading="lazy">)<img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031115383.png" alt="image-20210903111524299" loading="lazy"></p><p> 你就会看到你的域名已经正常显示出来了</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031118431.png" alt="image-20210903111849347" loading="lazy"></p><h5 id="三、创建Github-token"><a href="#三、创建Github-token" class="headerlink" title="三、创建Github token"></a>三、创建Github token</h5><h6 id="1、developer-settings"><a href="#1、developer-settings" class="headerlink" title="1、developer settings"></a>1、developer settings</h6><p>点击右上角头像的settings，选择菜单最下面的developer settings</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031126655.png" alt="image-20210903112639601" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031127594.png" alt="image-20210903112745508" loading="lazy"></p><h6 id="2、Generate-new-token"><a href="#2、Generate-new-token" class="headerlink" title="2、Generate new token"></a>2、Generate new token</h6><p>点击”Personal acces tokens“，再点击”Generate new token“。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031129010.png" alt="image-20210903112908952" loading="lazy"></p><h6 id="3、New-personal-access-token"><a href="#3、New-personal-access-token" class="headerlink" title="3、New personal access token"></a>3、New personal access token</h6><p>Note备注可以随便写，这里写个”Griddea“，然后选择”No expiration“，再把”repo“打上✓。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031132269.png" alt="image-20210903113217190" loading="lazy"></p><p>然后下拉页面，选择”Generate token“创建token。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031134079.png" alt="image-20210903113455025" loading="lazy"></p><h6 id="4、复制token"><a href="#4、复制token" class="headerlink" title="4、复制token"></a>4、复制token</h6><p>记得保存好，因为只显示一次，忘了又得重新申请。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031137064.png" alt="image-20210903113712997" loading="lazy"></p><h5 id="四、配置Gridea"><a href="#四、配置Gridea" class="headerlink" title="四、配置Gridea"></a>四、配置Gridea</h5><p>准备工作都完成了接下来是配置Gridea。</p><p>Gridea官网： <a href="https://gridea.dev" target="_blank" rel="noopener">https://gridea.dev</a></p><h6 id="1、下载Gridea"><a href="#1、下载Gridea" class="headerlink" title="1、下载Gridea"></a>1、下载Gridea</h6><p>进入官网，根据你的电脑系统下载好Gridea客户端，这里以windows为例。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031141526.png" alt="image-20210903114158437" loading="lazy"></p><p>你也可以直接在下方链接下载，因为在GIthub上下载是比较慢的。</p><p>推荐国内Gitee下载源：<a href="https://gitee.com/fehey/gridea/releases/v0.9.2" target="_blank" rel="noopener">https://gitee.com/fehey/gridea/releases/v0.9.2</a></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031146684.png" alt="image-20210903114657628" loading="lazy"></p><h6 id="2、配置Gridea"><a href="#2、配置Gridea" class="headerlink" title="2、配置Gridea"></a>2、配置Gridea</h6><p>安装好后，打开Gridea的”远程“配置你的Github信息，然后保存，如下图。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031231520.png" alt="image-20210903123113415" loading="lazy"></p><p>然后点击左下角的检测远程链接，如果配置没问题，那就会显示远程连接成功。</p><p>如果连接失败，还请回到上述步骤自行检查。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031232228.png" alt="image-20210903123209137" loading="lazy"></p><h6 id="3、发布文章。"><a href="#3、发布文章。" class="headerlink" title="3、发布文章。"></a>3、发布文章。</h6><p>点击文章，点击右上角的”+“号即可。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031203578.png" alt="image-20210903120341495" loading="lazy"></p><p>编辑完成后，点击右上角保存即可。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031207576.png" alt="image-20210903120729462" loading="lazy"></p><h6 id="4、预览和同步"><a href="#4、预览和同步" class="headerlink" title="4、预览和同步"></a>4、预览和同步</h6><p>点击预览，本地预览后没问题即可点击”同步“推送至github。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031208197.png" alt="image-20210903120823099" loading="lazy"></p><p>当然，你还可以继续配置其他信息，比如自己的网站名字，头像，页脚，图标等等。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031216640.png" alt="image-20210903121615559" loading="lazy"></p><p>由于篇幅原因在此不多做介绍，可以自行摸索~</p><h6 id="END"><a href="#END" class="headerlink" title="END"></a>END</h6>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>自动删除B站抽奖动态</title>
+    <url>/2021/02/26/bilibili-del/</url>
+    <content><![CDATA[<h4 id="在登录状态下打开我的动态页面"><a href="#在登录状态下打开我的动态页面" class="headerlink" title="在登录状态下打开我的动态页面"></a>在登录状态下打开我的动态页面</h4><p>下面用我的小号用来展示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/1629806193743-_7WMDNWN5QWQ9A%7BXG9BL777.png" alt="" loading="lazy"></p>
+<h4 id="复制下面的代码"><a href="#复制下面的代码" class="headerlink" title="复制下面的代码"></a>复制下面的代码</h4><pre><code>let delay = 1000,        // 删除时间间隔
+    scrolls = 800;       // 滚动距离
+let info = &#39;&#39;,           // 信息
+    rolls = 0;           // 距离
+//询问是否删除
+if (/dynamic/.test(window.location.href) &amp;&amp; confirm(&quot;确定删除抽奖吗&quot;)) {
+    Fun();
+}
+function Fun() {
+    rolls += scrolls;
+    $(&#39;html, body&#39;).animate({scrollTop: rolls}, 30);
+    // 展开内容
+    $(&quot;.fold-text&quot;).click();
+    $(&quot;.expand-btn&quot;).click();
+    // 定位抽奖内容
+    info = $(&quot;.main-content&quot;).find(&#39;span[click-title=&quot;抽奖详情&quot;]&#39;) || $(&quot;.main-content&quot;).find(&#39;.deleted-text&#39;);
+    setTimeout(getLottery, delay);
+}
+//获取
+function getLottery() {
+    info = info.parents(&quot;.card&quot;);
+    info[info.length - 1].querySelectorAll(&quot;.child-button&quot;)[1].click();
+    setTimeout(clickDel, delay);
+}
+//删除
+function clickDel() {
+    $(&quot;.popup-content-ctnr&quot;)[$(&quot;.popup-content-ctnr&quot;).length - 2].querySelector(&quot;.bl-button&quot;).click();
+    Fun()
+}</code></pre><h4 id="在键盘上按下F12，呼出控制台-console-，按顺序操作"><a href="#在键盘上按下F12，呼出控制台-console-，按顺序操作" class="headerlink" title="在键盘上按下F12，呼出控制台(console)，按顺序操作"></a>在键盘上按下F12，呼出控制台(<strong>console</strong>)，按顺序操作</h4><p><img src="https://cdn.awslnotbad.cn/img/006Ggs8Ygy1go0pzyvf16j314o0bxjsl.jpg" alt="" loading="lazy"></p>
+<h5 id="第三步如上图，在空白处粘贴代码按回车即可"><a href="#第三步如上图，在空白处粘贴代码按回车即可" class="headerlink" title="第三步如上图，在空白处粘贴代码按回车即可"></a>第三步如上图，在空白处粘贴代码按回车即可</h5><h4 id="具体操作展示"><a href="#具体操作展示" class="headerlink" title="具体操作展示"></a>具体操作展示</h4><p><img src="http://cdn.awslnotbad.cn/img/006Ggs8Ygy1go0q3tm56sg31gg0mhkjl.gif" alt="" loading="lazy"></p>
+]]></content>
+      <tags>
+        <tag>黑科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>纪念播放量破42万</title>
+    <url>/2020/04/27/bilibili/</url>
+    <content><![CDATA[<p><img src="https://img.imgdb.cn/item/60100cb03ffa7d37b3a0d296.jpg" alt="" loading="lazy"></p>
+<p>虽然视频很水，投的也是转载，但还是值得留下点痕迹的一件事。</p>
+]]></content>
       <categories>
-          
-          <category> 网站 </category>
-          
+        <category>纪念播放量破42万</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 网站 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>OneManager</title>
-      <link href="/2021/08/28/onemanager/"/>
-      <url>/2021/08/28/onemanager/</url>
-      
-        <content type="html"><![CDATA[<h2 id="源仓库"><a href="#源仓库" class="headerlink" title="源仓库"></a>源仓库</h2><p><a href="https://github.com/qkqpttgf/OneManager-php" target="_blank" rel="noopener">https://github.com/qkqpttgf/OneManager-php</a></p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这一步特别简单，基本按照提示来就好了</p><h2 id="设置-美化"><a href="#设置-美化" class="headerlink" title="设置/美化"></a>设置/美化</h2><p><img src="https://magenchun.cn/wp-content/uploads/onemanager-platform-variables.png" alt="img" loading="lazy"></p><h4 id="adminloginpage"><a href="#adminloginpage" class="headerlink" title="adminloginpage"></a>adminloginpage</h4><p>自定义登录地址，设置后就会隐藏登录按钮(有些主题本来就没有登录按钮)，登录时需要手动在网盘地址后加上?你设置的值进行登录。<br>比如设置为cloud，那么你只能通过<a href="http://xxx.com/xxx?cloud地址来登录" target="_blank" rel="noopener">http://xxx.com/xxx?cloud地址来登录</a> 。</p><h4 id="background"><a href="#background" class="headerlink" title="background"></a>background</h4><p>填入一个 图片/api 的url地址<br><a href="https://film.magenchun.cn/bing.php" target="_blank" rel="noopener">https://film.magenchun.cn/bing.php</a> (每日必应)<br><a href="https://api.ixiaowai.cn/api/api.php" target="_blank" rel="noopener">https://api.ixiaowai.cn/api/api.php</a> (二次元动漫)<br><a href="http://www.dmoe.cc/random.php（二次元随机图）" target="_blank" rel="noopener">http://www.dmoe.cc/random.php（二次元随机图）</a><br><a href="https://api.ixiaowai.cn/mcapi/mcapi.php" target="_blank" rel="noopener">https://api.ixiaowai.cn/mcapi/mcapi.php</a> （menhera酱）<br><a href="https://api.ixiaowai.cn/gqapi/gqapi.php" target="_blank" rel="noopener">https://api.ixiaowai.cn/gqapi/gqapi.php</a> （a风景）<br><a href="https://acg.yanwz.cn/wallpaper/api.php（二次元随机图）" target="_blank" rel="noopener">https://acg.yanwz.cn/wallpaper/api.php（二次元随机图）</a></p><h4 id="customCss"><a href="#customCss" class="headerlink" title="customCss"></a>customCss</h4><pre><code>#自定义ccs，例如隐藏语言栏&lt;style&gt;.changelanguage{display:none}&lt;/style&gt;</code></pre><h4 id="customScript"><a href="#customScript" class="headerlink" title="customScript"></a>customScript</h4><pre><code>#设置自定义js，会作用于所有页面。#例如如设置http重定向到https：&lt;script type=&quot;text/javascript&quot;&gt;    var targetProtocol = &quot;https:&quot;;    if (window.location.protocol != targetProtocol)        window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);&lt;/script&gt;</code></pre><h4 id="disableChangeTheme"><a href="#disableChangeTheme" class="headerlink" title="disableChangeTheme"></a>disableChangeTheme</h4><p>设置为1后游客将不显示右下角的主题切换功能</p><h4 id="disableShowThumb"><a href="#disableShowThumb" class="headerlink" title="disableShowThumb"></a>disableShowThumb</h4><p>设置为1后将不显示缩略图的按钮和功能，对于云函数用户来说，建议设为1来关闭该功能，因为该功能可能点一下就是一分钱</p><h4 id="hideFunctionalityFile"><a href="#hideFunctionalityFile" class="headerlink" title="hideFunctionalityFile"></a>hideFunctionalityFile</h4><p>设置为1后，游客浏览网盘时就会看不到read.md，head.md，head.ofm，foo.omf这些文件</p><h5 id="设置顶部和底部说明文字"><a href="#设置顶部和底部说明文字" class="headerlink" title="设置顶部和底部说明文字"></a>设置顶部和底部说明文字</h5><p>在需要展示顶部说明的目录下新建一个head.md文件，在文件里写入说明内容即可，这是一个markdown文件，可以使用markdown语言进行书写。<br>底部说明说明文字对应的是readme.md文件，规则与顶部文字一样。</p><h5 id="利用head-omf设置一言"><a href="#利用head-omf设置一言" class="headerlink" title="利用head.omf设置一言"></a>利用head.omf设置一言</h5><p>head.omf作用和head.md一样，区别是他不支持markdonw语言，但是支持html语言，可以写入html、css、js内容</p><pre><code>&lt;p id=&quot;hitokoto&quot;&gt;:D 获取中...&lt;/p&gt;&lt;script&gt;    fetch(&#39;https://v1.hitokoto.cn&#39;)        .then(response =&gt; response.json())        .then(data =&gt; {            const hitokoto = document.getElementById(&#39;hitokoto&#39;)            hitokoto.innerText = data.hitokoto        })        .catch(console.error)&lt;/script&gt;</code></pre><h5 id="利用foot-omf设置Valine评论"><a href="#利用foot-omf设置Valine评论" class="headerlink" title="利用foot.omf设置Valine评论"></a>利用foot.omf设置Valine评论</h5><p>使用Valine需要先注册LeanCloud并实名认证，然后新建应用获取AppID和Key，不过这个实名认证比较繁琐</p><pre><code>&lt;script src=&#39;//unpkg.com/valine/dist/Valine.min.js&#39;&gt;&lt;/script&gt;&lt;div id=&quot;vcomments&quot;&gt;&lt;/div&gt;&lt;script&gt;    new Valine({        el: &#39;#vcomments&#39;,        appId: &#39;你获取的AppID&#39;,        appKey: &#39;你获取的AppKey&#39;    })&lt;/script&gt;</code></pre><h4 id="passfile"><a href="#passfile" class="headerlink" title="passfile"></a>passfile</h4><p>设置密码文件名，比如这里设置为password.txt，那么在某一个目录下新建一个password.txt文件，其中写入密码，这样任何人在浏览这个网盘目录时都需要输入相应密码后才能访问</p><h4 id="domain-path"><a href="#domain-path" class="headerlink" title="domain_path"></a>domain_path</h4><p>当绑定多个域名时，可以使不同域名打开时访问不同目录。当然如果你只有一个域名也可以用，通过这种方式可以使当前域名访问一个指定子目录，和后面的public_path起到一样的作用。<br>下面是两个域名的设置方法，中间用|隔开，如果有多个域名只设置一个域名时，未设置的域名好像也会只访问该目录，要访问根目录dirname设置为/。</p><pre><code>domain1.com:/dir1name|domain2.com:/dir2name</code></pre><h4 id="downloadencrypt"><a href="#downloadencrypt" class="headerlink" title="downloadencrypt"></a>downloadencrypt</h4><p>设置为1时启用该功能，这样在设置了密码的目录下的文件虽然无法在网页端浏览，但可以通过具体的文件链接进行下载</p><h4 id="public-path"><a href="#public-path" class="headerlink" title="public_path"></a>public_path</h4><p>设置该盘的显示的根目录，默认为/，换个说法就是可以显示指定的文件夹，默认显示全部。<br>比如我们只想将网盘下的public文件夹内容作为网盘，可以设置为/public/。<br>有了这个功能，即使只有一个onedrive账号，我们也可以通过重复绑定同一个账号来生成多盘，然后每个盘的public_path设置为不同的路径，这样可以将一个盘的功能分开。<br>例如有一种特殊情况是我既想让游客上传文件，又想让游客看见上传后的文件目录，目前就只能通过这种方法将该目录设置到两个盘，一个盘作上传，一个盘作目录展示。</p><h3 id="进阶设置"><a href="#进阶设置" class="headerlink" title="进阶设置"></a>进阶设置</h3><h4 id="设置网站ico图标"><a href="#设置网站ico图标" class="headerlink" title="设置网站ico图标"></a>设置网站ico图标</h4><p>将favicon.ico图片放在网盘根目录下，and新版的html主题只需要在绑定的第一个盘下面设置就行了</p><pre><code>#当然我们也可以在customCss或customScript中进行全局设置&lt;link rel=&quot;icon&quot; href=&quot;https://www.google.com/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;</code></pre><h4 id="利用index-html设置自定义页面"><a href="#利用index-html设置自定义页面" class="headerlink" title="利用index.html设置自定义页面"></a>利用index.html设置自定义页面</h4><p>如果一个目录下有名为index.html的文件，则直接显示该文件，可以利用这个功能设置一个自定义页面或者用于隐藏一个特定页面，相当于部署了一个静态页面</p><h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 网盘 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>自动删除B站抽奖动态</title>
-      <link href="/2021/02/26/bilibili-del/"/>
-      <url>/2021/02/26/bilibili-del/</url>
-      
-        <content type="html"><![CDATA[<h4 id="在登录状态下打开我的动态页面"><a href="#在登录状态下打开我的动态页面" class="headerlink" title="在登录状态下打开我的动态页面"></a>在登录状态下打开我的动态页面</h4><p>下面用我的小号用来展示</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/1629806193743-_7WMDNWN5QWQ9A%7BXG9BL777.png" alt="" loading="lazy"></p><h4 id="复制下面的代码"><a href="#复制下面的代码" class="headerlink" title="复制下面的代码"></a>复制下面的代码</h4><pre><code>let delay = 1000,        // 删除时间间隔    scrolls = 800;       // 滚动距离let info = &#39;&#39;,           // 信息    rolls = 0;           // 距离//询问是否删除if (/dynamic/.test(window.location.href) &amp;&amp; confirm(&quot;确定删除抽奖吗&quot;)) {    Fun();}function Fun() {    rolls += scrolls;    $(&#39;html, body&#39;).animate({scrollTop: rolls}, 30);    // 展开内容    $(&quot;.fold-text&quot;).click();    $(&quot;.expand-btn&quot;).click();    // 定位抽奖内容    info = $(&quot;.main-content&quot;).find(&#39;span[click-title=&quot;抽奖详情&quot;]&#39;) || $(&quot;.main-content&quot;).find(&#39;.deleted-text&#39;);    setTimeout(getLottery, delay);}//获取function getLottery() {    info = info.parents(&quot;.card&quot;);    info[info.length - 1].querySelectorAll(&quot;.child-button&quot;)[1].click();    setTimeout(clickDel, delay);}//删除function clickDel() {    $(&quot;.popup-content-ctnr&quot;)[$(&quot;.popup-content-ctnr&quot;).length - 2].querySelector(&quot;.bl-button&quot;).click();    Fun()}</code></pre><h4 id="在键盘上按下F12，呼出控制台-console-，按顺序操作"><a href="#在键盘上按下F12，呼出控制台-console-，按顺序操作" class="headerlink" title="在键盘上按下F12，呼出控制台(console)，按顺序操作"></a>在键盘上按下F12，呼出控制台(<strong>console</strong>)，按顺序操作</h4><p><img src="https://cdn.awslnotbad.cn/img/006Ggs8Ygy1go0pzyvf16j314o0bxjsl.jpg" alt="" loading="lazy"></p><h5 id="第三步如上图，在空白处粘贴代码按回车即可"><a href="#第三步如上图，在空白处粘贴代码按回车即可" class="headerlink" title="第三步如上图，在空白处粘贴代码按回车即可"></a>第三步如上图，在空白处粘贴代码按回车即可</h5><h4 id="具体操作展示"><a href="#具体操作展示" class="headerlink" title="具体操作展示"></a>具体操作展示</h4><p><img src="http://cdn.awslnotbad.cn/img/006Ggs8Ygy1go0q3tm56sg31gg0mhkjl.gif" alt="" loading="lazy"></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 黑科技 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>mikutap</title>
-      <link href="/2021/02/24/mikutap/"/>
-      <url>/2021/02/24/mikutap/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>让你的浏览器如虎添翼——插件</title>
+    <url>/2020/11/26/CJ/</url>
+    <content><![CDATA[<p>所谓浏览器插件，顾名思义</p>
+<p><del>是直接插在浏览器上</del></p>
+<p> 是基于浏览器原有的功能，另外增加新功能的工具</p>
+<p>它能在一定程度上提高你使用浏览器便捷性和高效性。</p>
+<p><strong>它的原理</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEN5mwCzfbWeC1eSvYDuwZqu4wn1o5*bBG4SM6*fXNuRsxvUQypS8vU4Uxpin0RLhl8P3YaIkfwFOpSNn6KjCZNA!/r" alt="img" loading="lazy"></p>
+<p><img src="https://pic.downk.cc/item/5fbfc3c415e771908426bd6e.gif" alt="img" loading="lazy"></p>
+<p>既然都这样讲了，今天的目的主要是为大家分享几款值得推荐的插件。</p>
+<p>内容如下：</p>
+<h5 id="免费的广告拦截器"><a href="#免费的广告拦截器" class="headerlink" title="免费的广告拦截器"></a><strong>免费的广告拦截器</strong></h5><p>插件推荐：Adblock Plus</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEEtko4zufBpKNNAcxKAP1IVYty.LPRxD5pB0t*gumg8ETdKEdGIUWebHn0Z6QwyEgQ8CoEQAkiS6vDNIsheYcq0!/r" alt="img" loading="lazy"></p>
+<p>Adblock Plus 是一款十分良心的广告插件拦截，你可手动添加过滤规则，<strong>屏蔽所有你不想出现在浏览器上的内容。</strong></p>
+<p>屏蔽前</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEILystffkIYMv4X6*7efsn8.kvribPpHVtUNclHKmVMq5b1PozeP.5ovIIxE1zWUDF0l2M*A*FFyzcKjRaxPOiY!/r" alt="img" loading="lazy"></p>
+<p>屏蔽后</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEJjS*GCnlI16AtOk5iz2csYG73C1OfQdfqDigzKWsIZF20bfIixUWPtI021m.liqK5z7S4qlDx7GV*xCpr9W40E!/r" alt="img" loading="lazy"></p>
+<p>想进行屏蔽内容也很简单</p>
+<p><img src="https://pic.downk.cc/item/5fbfc49915e77190842707a3.gif" alt="img" loading="lazy"></p>
+<p>但是你会发现，屏蔽之后会有一大片的留白，这样会显得很突兀，并且不美观，这可怎么办？</p>
+<p><img src="https://pic.downk.cc/item/5fbfc4c115e7719084271291.gif" alt="img" loading="lazy"></p>
+<h5 id="这时候可以使用另一种插件，美化插件。"><a href="#这时候可以使用另一种插件，美化插件。" class="headerlink" title="这时候可以使用另一种插件，美化插件。"></a><strong>这时候可以使用另一种插件，美化插件。</strong></h5><p><del>插件推荐：xStyle</del></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEI8zQutV7NplEJquQMFn3sQOmnBBA92x4PVYkRh10bKlF7mx4z0S.uoRjaziZV17ChP8PaM.cIYVuclr.vlcpD4!/r" alt="img" loading="lazy"></p>
+<p>里面有许许多多精美的样式，你可以任意选择并进行安装</p>
+<p><strong>下面是其中的一些展示</strong></p>
+<p><strong>百度多栏卡片搜索</strong> </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEA53EN1Q5Ke1iSruaA0vnrJ1csH3X1zkDceplcJLNDfuAdPTEuP4s0ScuPMX3rBshGw0s4KInBRNnzXTMFTmaQA!/r" alt="img" loading="lazy"></p>
+<p><strong>Baidu Lite百度轻-轻萌化</strong>  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEF4p6YdA7UzwXjOLForMCLsd.KeNHdQoJnrPlZZGMMZ0iNiJBtQpy691egWKgW5QMTBTLgFve6slSeBuVKpk8sY!/r" alt="img" loading="lazy"></p>
+<p><strong>百度系列萌化</strong></p>
+<p><img src="https://pic.downk.cc/item/5fbfc58115e7719084274973.png" alt="img" loading="lazy"></p>
+<p>安装过程也十分简单，如下，打开先要美化的网页，比如百度-点击插件-查找更多样式-查找适合此网站的更多样式-选择-安装</p>
+<p><img src="https://pic.downk.cc/item/5fbfc5c815e7719084276162.gif" alt="img" loading="lazy"></p>
+<p><strong>缺点</strong>是部分样式老化、作者停止维护，导致样式跟不上网站的更新、样式过多导致网页排版出现问题等等，这个就需要自己细细打磨并调整出一个适合自己的样式组合。</p>
+<p>另外呢，这个插件打开速度非常慢，可能需要等待一段时间，当然你也可以使用魔法打开，这个就不展开说了。<strong>不过不用担心，这次我会把提到的插件和样式都打包放在文末，以供下载。</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEOGSIseQW3JptOTXLPyLSL0Gmto7AttdHSJSmQDlK1ztLtI8WCIR6aShJh.q.ICjVsoygcc0ygQDpv2tJPzROQI!/r" alt="img" loading="lazy"></p>
+<blockquote>
+<p>更新：</p>
+<p>推荐新一代：xStyle</p>
+<p>效果是一样的，只是设计的更加合理，并且可以自定义。</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/006Ggs8Ygy1godz1voq03j30c903vwef.jpg" alt="截图_20212509092527.png" loading="lazy"></p>
+<p>说到插件，当然少不了神器<strong>油猴（Tampermonkey）</strong>了</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEF87W*XFY6XRLRpXSswsgOLTZ8.y9taIGHMdlIE2MH6jzoPy4kfK9EElnPsBhgxK2T5X5vw.Bg*qok9mhP83x5A!/r" alt="img" loading="lazy"></p>
+<p>油猴是什么？它能干啥？</p>
+<p>它是一个可以装下成千上百个黑科技的小盒子（嗯，那也可以叫它小黑盒）</p>
+<p>简单点说，你可以在它的脚本源网站<strong>Greasy Fork</strong>，搜索找到各种各样的插件脚本，然后用到你的浏览器身上。那就直接上图吧。</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEC5bbgCFoXiqMNCVe6L7AW6P2o.2LKZRJDVnSIxv9rXutSG5fWfqBQIFWQv2AtI3CKcPD4U9TKgPj7o3lRP0.zQ!/r" alt="img" loading="lazy"></p>
+<p>油猴添加脚本方法</p>
+<p><img src="https://pic.downk.cc/item/5fbfc62d15e7719084277f26.gif" alt="img" loading="lazy"></p>
+<p>打开对应的网页，对应的脚本就会起作用，不常用的可以在管理面板关掉。</p>
+<p><strong>然后是Pixiv下载小助手</strong></p>
+<p>推荐：Powerful Pixiv Downloader</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEGWjBgJptD7GPLv1NDOgxhk1S2eOA*jwuC6CV6nXCCZtWsJHkNm6Yqt0IXhgxqOnDRBaUT1p0SPk6MoZlREBV4o!/r" alt="img" loading="lazy"></p>
+<p>当你看到pixiv的好多美图想下载，或者看到某个大佬作者的画作想全部打包下载下来，一张一张下载又很麻烦时该怎么办，这个时候它就能派上大用场了。</p>
+<p><img src="https://pic.downk.cc/item/5fbfc68215e7719084279cab.gif" alt="img" loading="lazy"></p>
+<p><strong>翻译插件推荐</strong></p>
+<p>谷歌翻译</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEFbook46eo6PewGcOECO3SCFHhvC0UYRb8ppCIHZxPkz5oY5r*u49FfIQoTwqm5iLzg2ju6WBHcyywJTh6fsiVk!/r" alt="img" loading="lazy"></p>
+<p>可以自动翻译浏览器页面文字，转换成中文。</p>
+<p><img src="https://pic.downk.cc/item/5fbfc6a815e771908427a853.gif" alt="img" loading="lazy"></p>
+<p>最后，当我们的插件过多时，需要一个管理插件的插件，需要时开，不需要时关闭，还可以设置分组，方便在不同场景使用，不影响浏览器运行的加载速度。</p>
+<p><strong>插件管理器</strong></p>
+<p>推荐：扩展管理器(Extension Manager)</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEDsIeuc5dZb*2j5*yfuP*uO72mzVqizxg*7ec6PJ9o2dC4CfV5IGcZgHYpTCCcESmjIHKZ9YILIDiRx.5NkkYN0!/r" alt="img" loading="lazy"></p>
+<p><img src="https://pic.downk.cc/item/5fbfc6fa15e771908427bfbb.gif" alt="img" loading="lazy"></p>
+<p>插件集合：<a href="https://gqxi.lanzous.com/iTtCbic1iji" target="_blank" rel="noopener">https://gqxi.lanzous.com/iTtCbic1iji</a></p>
+<p>最后的最后，补充一下插件安装方法</p>
+<p><strong>打开浏览器菜单栏—更多工具—扩展程序—选上开发者模式—把需要安装的插件直接拖到浏览器内</strong></p>
+<p>PS：这是我在小黑盒的第三次投稿，按理说应该是接着上一篇用hexo搭建好网站后的美化教程，然后添加评论系统啊等等，比较繁琐，要准备的图可能比较多。</p>
+<p>但是最近事比较多，考了一场试，然后去模拟科三，13号一大早就要去考。</p>
+<p>所以整一篇容易写的，然后投个稿，而写这次稿的时候也是一边刷科四一边停停写写(12号晚)，因为我打算科三过了直接去考科四。</p>
+<p><del>计划是13号早出发前把这个稿投了，所以等我中午回来再看小黑盒的时候，我应该也是个有驾驶证的“老司机”了吧doge  但愿我能顺利一把过吧</del></p>
+<p>没有定时投稿，我还是直接发了吧doge</p>
+<p>ps: </p>
+<p>小黑盒同步发布</p>
+<p>本文小黑盒链接：<a href="https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?link_id=48347977" target="_blank" rel="noopener">https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?link_id=48347977</a></p>
+<p>​                                                                                     完</p>
+<p>​                                                                                                                                                               谢谢阅读</p>
+<p>​                                                                                                                                                               </p>
+]]></content>
+      <tags>
+        <tag>浏览器插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gridea静态博客教程</title>
+    <url>/2021/09/12/gridea/</url>
+    <content><![CDATA[<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>本文于2021.09.03在小黑盒发布：<a href="https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?link_id=67733262" target="_blank" rel="noopener">https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?link_id=67733262</a></p>
+<p> 先给大家简单的介绍一下吧，Gridea是一个静态博客写作客户端，相较于其他主流的静态博客，比如用hexo搭建的本站，它更简单更容易上手，只需要了解一点点Markdown的语法进行写作就可以，这就意味着哪怕是完全没有接触过这方面的人也能够在短短几分钟之内搭建一个自己的博客。<br>​ 那么下面就是具体操作的步骤！</p>
+<h5 id="一、确定托管代码的平台"><a href="#一、确定托管代码的平台" class="headerlink" title="一、确定托管代码的平台"></a>一、确定托管代码的平台</h5><p> Gridea是可以将博客部署到Github、Coding和自己的服务器上的。但是很明显，服务器要花钱，选择建静态博客的大部分人，还是因为不想花非刚需的钱去买主机或者服务器。而Coding新版也是要收费的，虽然也不贵而且还有六个月的试用期，但是想要用它的pages服务还需要实名认证，这也相对繁琐。因此我推荐将博客部署到github。往下的教程也是以Github为例。</p>
+<h5 id="二、注册Github账号并创建仓库"><a href="#二、注册Github账号并创建仓库" class="headerlink" title="二、注册Github账号并创建仓库"></a>二、注册Github账号并创建仓库</h5><h6 id="1、注册Github账号"><a href="#1、注册Github账号" class="headerlink" title="1、注册Github账号"></a>1、注册Github账号</h6><p>如果你没有Github的账号，那么可以进入官网开始注册（注意一下用户名的填写，如果不使用自定义域名，用户名将会是你的Github分配给你的域名，比如你的用户名为xxx，那么你的域名会是xxx.github,io）。</p>
+<pre><code>Github官网：https://github.com </code></pre><h6 id="2、新建仓库"><a href="#2、新建仓库" class="headerlink" title="2、新建仓库"></a>2、新建仓库</h6><p>如图所示，点击右上角的“+”号，然后点击“New respository”即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031041028.png" alt="image-20210903104124892" loading="lazy"></p>
+<h6 id="3、配置仓库"><a href="#3、配置仓库" class="headerlink" title="3、配置仓库"></a>3、配置仓库</h6><p> 这里推荐仓库名填写格式为：”用户名.github.io“。</p>
+<p> 然后点击”Add a README file“，再点击”Create repository“即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031112516.png" alt="image-20210903111250432" loading="lazy"></p>
+<h6 id="4、点击仓库的”Settings“，进入”pages“。"><a href="#4、点击仓库的”Settings“，进入”pages“。" class="headerlink" title="4、点击仓库的”Settings“，进入”pages“。"></a>4、点击仓库的”Settings“，进入”pages“。</h6><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031114786.png" alt="image-20210903111403711" loading="lazy">)<img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031115383.png" alt="image-20210903111524299" loading="lazy"></p>
+<p> 你就会看到你的域名已经正常显示出来了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031118431.png" alt="image-20210903111849347" loading="lazy"></p>
+<h5 id="三、创建Github-token"><a href="#三、创建Github-token" class="headerlink" title="三、创建Github token"></a>三、创建Github token</h5><h6 id="1、developer-settings"><a href="#1、developer-settings" class="headerlink" title="1、developer settings"></a>1、developer settings</h6><p>点击右上角头像的settings，选择菜单最下面的developer settings</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031126655.png" alt="image-20210903112639601" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031127594.png" alt="image-20210903112745508" loading="lazy"></p>
+<h6 id="2、Generate-new-token"><a href="#2、Generate-new-token" class="headerlink" title="2、Generate new token"></a>2、Generate new token</h6><p>点击”Personal acces tokens“，再点击”Generate new token“。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031129010.png" alt="image-20210903112908952" loading="lazy"></p>
+<h6 id="3、New-personal-access-token"><a href="#3、New-personal-access-token" class="headerlink" title="3、New personal access token"></a>3、New personal access token</h6><p>Note备注可以随便写，这里写个”Griddea“，然后选择”No expiration“，再把”repo“打上✓。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031132269.png" alt="image-20210903113217190" loading="lazy"></p>
+<p>然后下拉页面，选择”Generate token“创建token。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031134079.png" alt="image-20210903113455025" loading="lazy"></p>
+<h6 id="4、复制token"><a href="#4、复制token" class="headerlink" title="4、复制token"></a>4、复制token</h6><p>记得保存好，因为只显示一次，忘了又得重新申请。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031137064.png" alt="image-20210903113712997" loading="lazy"></p>
+<h5 id="四、配置Gridea"><a href="#四、配置Gridea" class="headerlink" title="四、配置Gridea"></a>四、配置Gridea</h5><p>准备工作都完成了接下来是配置Gridea。</p>
+<p>Gridea官网： <a href="https://gridea.dev" target="_blank" rel="noopener">https://gridea.dev</a></p>
+<h6 id="1、下载Gridea"><a href="#1、下载Gridea" class="headerlink" title="1、下载Gridea"></a>1、下载Gridea</h6><p>进入官网，根据你的电脑系统下载好Gridea客户端，这里以windows为例。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031141526.png" alt="image-20210903114158437" loading="lazy"></p>
+<p>你也可以直接在下方链接下载，因为在GIthub上下载是比较慢的。</p>
+<p>推荐国内Gitee下载源：<a href="https://gitee.com/fehey/gridea/releases/v0.9.2" target="_blank" rel="noopener">https://gitee.com/fehey/gridea/releases/v0.9.2</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031146684.png" alt="image-20210903114657628" loading="lazy"></p>
+<h6 id="2、配置Gridea"><a href="#2、配置Gridea" class="headerlink" title="2、配置Gridea"></a>2、配置Gridea</h6><p>安装好后，打开Gridea的”远程“配置你的Github信息，然后保存，如下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031231520.png" alt="image-20210903123113415" loading="lazy"></p>
+<p>然后点击左下角的检测远程链接，如果配置没问题，那就会显示远程连接成功。</p>
+<p>如果连接失败，还请回到上述步骤自行检查。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031232228.png" alt="image-20210903123209137" loading="lazy"></p>
+<h6 id="3、发布文章。"><a href="#3、发布文章。" class="headerlink" title="3、发布文章。"></a>3、发布文章。</h6><p>点击文章，点击右上角的”+“号即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031203578.png" alt="image-20210903120341495" loading="lazy"></p>
+<p>编辑完成后，点击右上角保存即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031207576.png" alt="image-20210903120729462" loading="lazy"></p>
+<h6 id="4、预览和同步"><a href="#4、预览和同步" class="headerlink" title="4、预览和同步"></a>4、预览和同步</h6><p>点击预览，本地预览后没问题即可点击”同步“推送至github。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031208197.png" alt="image-20210903120823099" loading="lazy"></p>
+<p>当然，你还可以继续配置其他信息，比如自己的网站名字，头像，页脚，图标等等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109031216640.png" alt="image-20210903121615559" loading="lazy"></p>
+<p>由于篇幅原因在此不多做介绍，可以自行摸索~</p>
+<h6 id="END"><a href="#END" class="headerlink" title="END"></a>END</h6>]]></content>
       <categories>
-          
-          <category> 网站 </category>
-          
+        <category>网站</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>易班自动打卡</title>
-      <link href="/2021/01/08/yiban/"/>
-      <url>/2021/01/08/yiban/</url>
-      
-        <content type="html"><![CDATA[<p>项目地址：<a href="https://gqxi.lanzous.com/iQSeok60sqf" target="_blank" rel="noopener">蓝奏云链接</a></p><p>解压下载的源程序，</p><p>找到目录中的main.py文件，</p><h5 id="修改信息"><a href="#修改信息" class="headerlink" title="修改信息"></a>修改信息</h5><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E6%88%AA%E5%9B%BE_20215019125054.png" alt="截图_20215019125054" loading="lazy"></p><p>修改完成后</p><h5 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h5><h6 id="1创建虚拟环境"><a href="#1创建虚拟环境" class="headerlink" title="#1创建虚拟环境"></a>#1创建虚拟环境</h6><pre><code class="shell">python3 -m venv venv</code></pre><h6 id="2安装必要依赖"><a href="#2安装必要依赖" class="headerlink" title="#2安装必要依赖"></a>#2安装必要依赖</h6><pre><code class="shell">pip3 install -r requirements.txt -i https://pypi.douban.com/simple</code></pre><h6 id="3启动打卡"><a href="#3启动打卡" class="headerlink" title="#3启动打卡"></a>#3启动打卡</h6><pre><code>python3 main.py</code></pre><h6 id="打卡成功"><a href="#打卡成功" class="headerlink" title="打卡成功"></a>打卡成功</h6><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0u4VWl/TmEUgtj9EK6.7V8ajmQrEORfm*2tNddVPgt0S6okVZLzyskeyAs7EsMfhh0ev.JsMbtHjKGAgPo.tmmelNZiLptCnq9HvANGZ49gBWjaEsE!/r" alt="" loading="lazy"></p><h6 id="这里并没有实现全自动化定点打卡"><a href="#这里并没有实现全自动化定点打卡" class="headerlink" title="这里并没有实现全自动化定点打卡"></a>这里并没有实现全自动化定点打卡</h6><p>如果想这样做的话，</p><p>可以买个服务器或者电脑不关机挂着程序，</p><p>然后再设计定点运行程序。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 黑科技 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>让你的浏览器如虎添翼——插件</title>
-      <link href="/2020/11/26/CJ/"/>
-      <url>/2020/11/26/CJ/</url>
-      
-        <content type="html"><![CDATA[<p>所谓浏览器插件，顾名思义</p><p><del>是直接插在浏览器上</del></p><p> 是基于浏览器原有的功能，另外增加新功能的工具</p><p>它能在一定程度上提高你使用浏览器便捷性和高效性。</p><p><strong>它的原理</strong></p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEN5mwCzfbWeC1eSvYDuwZqu4wn1o5*bBG4SM6*fXNuRsxvUQypS8vU4Uxpin0RLhl8P3YaIkfwFOpSNn6KjCZNA!/r" alt="img" loading="lazy"></p><p><img src="https://pic.downk.cc/item/5fbfc3c415e771908426bd6e.gif" alt="img" loading="lazy"></p><p>既然都这样讲了，今天的目的主要是为大家分享几款值得推荐的插件。</p><p>内容如下：</p><h5 id="免费的广告拦截器"><a href="#免费的广告拦截器" class="headerlink" title="免费的广告拦截器"></a><strong>免费的广告拦截器</strong></h5><p>插件推荐：Adblock Plus</p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEEtko4zufBpKNNAcxKAP1IVYty.LPRxD5pB0t*gumg8ETdKEdGIUWebHn0Z6QwyEgQ8CoEQAkiS6vDNIsheYcq0!/r" alt="img" loading="lazy"></p><p>Adblock Plus 是一款十分良心的广告插件拦截，你可手动添加过滤规则，<strong>屏蔽所有你不想出现在浏览器上的内容。</strong></p><p>屏蔽前</p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEILystffkIYMv4X6*7efsn8.kvribPpHVtUNclHKmVMq5b1PozeP.5ovIIxE1zWUDF0l2M*A*FFyzcKjRaxPOiY!/r" alt="img" loading="lazy"></p><p>屏蔽后</p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEJjS*GCnlI16AtOk5iz2csYG73C1OfQdfqDigzKWsIZF20bfIixUWPtI021m.liqK5z7S4qlDx7GV*xCpr9W40E!/r" alt="img" loading="lazy"></p><p>想进行屏蔽内容也很简单</p><p><img src="https://pic.downk.cc/item/5fbfc49915e77190842707a3.gif" alt="img" loading="lazy"></p><p>但是你会发现，屏蔽之后会有一大片的留白，这样会显得很突兀，并且不美观，这可怎么办？</p><p><img src="https://pic.downk.cc/item/5fbfc4c115e7719084271291.gif" alt="img" loading="lazy"></p><h5 id="这时候可以使用另一种插件，美化插件。"><a href="#这时候可以使用另一种插件，美化插件。" class="headerlink" title="这时候可以使用另一种插件，美化插件。"></a><strong>这时候可以使用另一种插件，美化插件。</strong></h5><p><del>插件推荐：xStyle</del></p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEI8zQutV7NplEJquQMFn3sQOmnBBA92x4PVYkRh10bKlF7mx4z0S.uoRjaziZV17ChP8PaM.cIYVuclr.vlcpD4!/r" alt="img" loading="lazy"></p><p>里面有许许多多精美的样式，你可以任意选择并进行安装</p><p><strong>下面是其中的一些展示</strong></p><p><strong>百度多栏卡片搜索</strong> </p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEA53EN1Q5Ke1iSruaA0vnrJ1csH3X1zkDceplcJLNDfuAdPTEuP4s0ScuPMX3rBshGw0s4KInBRNnzXTMFTmaQA!/r" alt="img" loading="lazy"></p><p><strong>Baidu Lite百度轻-轻萌化</strong>  </p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEF4p6YdA7UzwXjOLForMCLsd.KeNHdQoJnrPlZZGMMZ0iNiJBtQpy691egWKgW5QMTBTLgFve6slSeBuVKpk8sY!/r" alt="img" loading="lazy"></p><p><strong>百度系列萌化</strong></p><p><img src="https://pic.downk.cc/item/5fbfc58115e7719084274973.png" alt="img" loading="lazy"></p><p>安装过程也十分简单，如下，打开先要美化的网页，比如百度-点击插件-查找更多样式-查找适合此网站的更多样式-选择-安装</p><p><img src="https://pic.downk.cc/item/5fbfc5c815e7719084276162.gif" alt="img" loading="lazy"></p><p><strong>缺点</strong>是部分样式老化、作者停止维护，导致样式跟不上网站的更新、样式过多导致网页排版出现问题等等，这个就需要自己细细打磨并调整出一个适合自己的样式组合。</p><p>另外呢，这个插件打开速度非常慢，可能需要等待一段时间，当然你也可以使用魔法打开，这个就不展开说了。<strong>不过不用担心，这次我会把提到的插件和样式都打包放在文末，以供下载。</strong></p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEOGSIseQW3JptOTXLPyLSL0Gmto7AttdHSJSmQDlK1ztLtI8WCIR6aShJh.q.ICjVsoygcc0ygQDpv2tJPzROQI!/r" alt="img" loading="lazy"></p><blockquote><p>更新：</p><p>推荐新一代：xStyle</p><p>效果是一样的，只是设计的更加合理，并且可以自定义。</p></blockquote><p><img src="http://ww1.sinaimg.cn/large/006Ggs8Ygy1godz1voq03j30c903vwef.jpg" alt="截图_20212509092527.png" loading="lazy"></p><p>说到插件，当然少不了神器<strong>油猴（Tampermonkey）</strong>了</p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEF87W*XFY6XRLRpXSswsgOLTZ8.y9taIGHMdlIE2MH6jzoPy4kfK9EElnPsBhgxK2T5X5vw.Bg*qok9mhP83x5A!/r" alt="img" loading="lazy"></p><p>油猴是什么？它能干啥？</p><p>它是一个可以装下成千上百个黑科技的小盒子（嗯，那也可以叫它小黑盒）</p><p>简单点说，你可以在它的脚本源网站<strong>Greasy Fork</strong>，搜索找到各种各样的插件脚本，然后用到你的浏览器身上。那就直接上图吧。</p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEC5bbgCFoXiqMNCVe6L7AW6P2o.2LKZRJDVnSIxv9rXutSG5fWfqBQIFWQv2AtI3CKcPD4U9TKgPj7o3lRP0.zQ!/r" alt="img" loading="lazy"></p><p>油猴添加脚本方法</p><p><img src="https://pic.downk.cc/item/5fbfc62d15e7719084277f26.gif" alt="img" loading="lazy"></p><p>打开对应的网页，对应的脚本就会起作用，不常用的可以在管理面板关掉。</p><p><strong>然后是Pixiv下载小助手</strong></p><p>推荐：Powerful Pixiv Downloader</p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEGWjBgJptD7GPLv1NDOgxhk1S2eOA*jwuC6CV6nXCCZtWsJHkNm6Yqt0IXhgxqOnDRBaUT1p0SPk6MoZlREBV4o!/r" alt="img" loading="lazy"></p><p>当你看到pixiv的好多美图想下载，或者看到某个大佬作者的画作想全部打包下载下来，一张一张下载又很麻烦时该怎么办，这个时候它就能派上大用场了。</p><p><img src="https://pic.downk.cc/item/5fbfc68215e7719084279cab.gif" alt="img" loading="lazy"></p><p><strong>翻译插件推荐</strong></p><p>谷歌翻译</p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEFbook46eo6PewGcOECO3SCFHhvC0UYRb8ppCIHZxPkz5oY5r*u49FfIQoTwqm5iLzg2ju6WBHcyywJTh6fsiVk!/r" alt="img" loading="lazy"></p><p>可以自动翻译浏览器页面文字，转换成中文。</p><p><img src="https://pic.downk.cc/item/5fbfc6a815e771908427a853.gif" alt="img" loading="lazy"></p><p>最后，当我们的插件过多时，需要一个管理插件的插件，需要时开，不需要时关闭，还可以设置分组，方便在不同场景使用，不影响浏览器运行的加载速度。</p><p><strong>插件管理器</strong></p><p>推荐：扩展管理器(Extension Manager)</p><p><img src="http://r.photo.store.qq.com/psc?/V51okZ4B1psN3T1fkpOG2ohRZY0uAY8k/TmEUgtj9EK6.7V8ajmQrEDsIeuc5dZb*2j5*yfuP*uO72mzVqizxg*7ec6PJ9o2dC4CfV5IGcZgHYpTCCcESmjIHKZ9YILIDiRx.5NkkYN0!/r" alt="img" loading="lazy"></p><p><img src="https://pic.downk.cc/item/5fbfc6fa15e771908427bfbb.gif" alt="img" loading="lazy"></p><p>插件集合：<a href="https://gqxi.lanzous.com/iTtCbic1iji" target="_blank" rel="noopener">https://gqxi.lanzous.com/iTtCbic1iji</a></p><p>最后的最后，补充一下插件安装方法</p><p><strong>打开浏览器菜单栏—更多工具—扩展程序—选上开发者模式—把需要安装的插件直接拖到浏览器内</strong></p><p>PS：这是我在小黑盒的第三次投稿，按理说应该是接着上一篇用hexo搭建好网站后的美化教程，然后添加评论系统啊等等，比较繁琐，要准备的图可能比较多。</p><p>但是最近事比较多，考了一场试，然后去模拟科三，13号一大早就要去考。</p><p>所以整一篇容易写的，然后投个稿，而写这次稿的时候也是一边刷科四一边停停写写(12号晚)，因为我打算科三过了直接去考科四。</p><p><del>计划是13号早出发前把这个稿投了，所以等我中午回来再看小黑盒的时候，我应该也是个有驾驶证的“老司机”了吧doge  但愿我能顺利一把过吧</del></p><p>没有定时投稿，我还是直接发了吧doge</p><p>ps: </p><p>小黑盒同步发布</p><p>本文小黑盒链接：<a href="https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?link_id=48347977" target="_blank" rel="noopener">https://api.xiaoheihe.cn/v3/bbs/app/api/web/share?link_id=48347977</a></p><p>​                                                                                     完</p><p>​                                                                                                                                                               谢谢阅读</p><p>​                                                                                                                                                               </p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 浏览器插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>B站如何更换动态头像</title>
-      <link href="/2020/06/27/gif/"/>
-      <url>/2020/06/27/gif/</url>
-      
-        <content type="html"><![CDATA[<p>首先准备一个180*180大小的GIF图片。<br>然后通过 <code>https://www.upyun.com/webp</code> 上传保存好webp格式。<br>将下面的代码复制到浏览器书签里面</p><pre><code>javascript:void (()=&gt;{var a=document.createElement(&quot;input&quot;);a.type=&quot;file&quot;;a.onchange=function(){if(a.files.length&gt;0){var b=new FormData();b.append(&quot;dopost&quot;,&quot;save&quot;);b.append(&quot;Displayrank&quot;,&quot;10000&quot;);b.append(&quot;face&quot;,a.files[0]);var c=new XMLHttpRequest();c.withCredentials=!!1;c.open(&quot;POST&quot;,&quot;https://api.bilibili.com/x/member/web/face/update?csrf=&quot;+document.cookie.match(/bili_jct=(.+?);/)[1]);c.onload=function(){var d=c.response;try{d=JSON.parse(d);switch(d.code){case 0:alert(&quot;更新成功，刷新页面即可&quot;);break;case 40012:alert(&quot;头像格式错误&quot;);break;case 40013:alert(&quot;头像大小不能超过2M&quot;);break;default:alert(&quot;未知返回&quot;+c.response);console.error(c.response, c);break}}catch(e){console.error(e, c, d);alert(&quot;解析返回数据时出现错误，具体看console&quot;)}};c.onerror=function(e){console.error(e,c);alert(&quot;请求出现错误，具体看console&quot;);};c.send(b)}else{alert(&quot;请选择一个文件&quot;)}};a.click();})()</code></pre><p>然后打开B站更换头像的网页，点击书签，选择转好的webp格式图片，然后点击提交，上传成功，刷新网页即可查看效果。</p><p><img src="https://pic.downk.cc/item/5f4fbc31160a154a67fe6108.gif" alt="" loading="lazy"></p><p>目前此方法已失效[doge]</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 哔哩哔哩 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Win10桌面优化&amp;提高效率</title>
-      <link href="/2020/05/27/win10/"/>
-      <url>/2020/05/27/win10/</url>
-      
-        <content type="html"><![CDATA[<h3 id="系统设置："><a href="#系统设置：" class="headerlink" title="系统设置："></a>系统设置：</h3><h5 id="一-、简化任务栏"><a href="#一-、简化任务栏" class="headerlink" title="一 、简化任务栏"></a>一 、简化任务栏</h5><ul><li><p>仅显示搜索图标</p></li><li><p>关闭人脉，工作区按钮</p></li></ul><h5 id="二-、使用磁贴"><a href="#二-、使用磁贴" class="headerlink" title="二 、使用磁贴"></a>二 、使用磁贴</h5><blockquote><p>准备工作</p><p>在设置-个性化-开始中</p><p>勾选“全屏开始屏幕”，勾选显示更多磁贴</p></blockquote><ul><li><p>将自己不常用的的软件固定到磁贴，并进行分类</p></li><li><p>常用的软件固定到任务栏，譬如浏览器</p></li><li><p>按WIN键或鼠标点击菜单键即可弹出磁贴</p></li></ul><h3 id="配合软件："><a href="#配合软件：" class="headerlink" title="配合软件："></a>配合软件：</h3><h5 id="一-、任务栏透明化"><a href="#一-、任务栏透明化" class="headerlink" title="一 、任务栏透明化"></a>一 、任务栏透明化</h5><ul><li><h6 id="推荐：TranslucentTB"><a href="#推荐：TranslucentTB" class="headerlink" title="推荐：TranslucentTB"></a>推荐：TranslucentTB</h6><p>可在微软商店中下载</p><p>安装后基本不用更改设置，右键勾上Open at boot(开机自启)即可</p></li></ul><h5 id="二-、OCR软件"><a href="#二-、OCR软件" class="headerlink" title="二 、OCR软件"></a>二 、OCR软件</h5><ul><li><h6 id="推荐：天若OCR"><a href="#推荐：天若OCR" class="headerlink" title="推荐：天若OCR"></a>推荐：天若OCR</h6></li></ul><p>功能：文本识别、表格转换、竖排识别、公式识别、矫正识别、高级识别、识别翻译、识别搜索、截图功能(含录制gif功能)</p><h5 id="三、文件预览软件"><a href="#三、文件预览软件" class="headerlink" title="三、文件预览软件"></a>三、文件预览软件</h5><ul><li><h6 id="推荐：Quicklook"><a href="#推荐：Quicklook" class="headerlink" title="推荐：Quicklook"></a>推荐：Quicklook</h6></li></ul><p>可在微软商店中下载</p><p>配合其插件</p><p>点击文件，按空格即可预览：Pdf 、word、TXT、图片、视频等，大大节省需要打开软件的时间</p><h5 id="四、剪贴板管理软件"><a href="#四、剪贴板管理软件" class="headerlink" title="四、剪贴板管理软件"></a>四、剪贴板管理软件</h5><ul><li><h6 id="推荐：Ditto"><a href="#推荐：Ditto" class="headerlink" title="推荐：Ditto"></a>推荐：Ditto</h6><p>功能强大的剪贴板管理器</p><p>持多种格式的数据，包括文本、图片和文件路径</p><p>可快速搜索出你复制过的数据</p><p>可自行设置保存的数量和自动清除时间</p><p>摆脱一条条地复制粘贴信息的困扰</p><p>复制粘贴从此变得更加简单高效</p></li></ul><h5 id="五、安全软件"><a href="#五、安全软件" class="headerlink" title="五、安全软件"></a>五、安全软件</h5><ul><li><h6 id="推荐：火绒安全"><a href="#推荐：火绒安全" class="headerlink" title="推荐：火绒安全"></a>推荐：火绒安全</h6></li></ul><p>一款 强悍、 轻巧、 干净的安全软件 </p><p>我更愿称之为拦截弹窗神器，将广告弹窗拒之千里，桌面再也不会出现一堆的乱七八糟的东西</p><h5 id="六、壁纸软件"><a href="#六、壁纸软件" class="headerlink" title="六、壁纸软件"></a>六、壁纸软件</h5><ul><li><h6 id="推荐：wallpaper-engine"><a href="#推荐：wallpaper-engine" class="headerlink" title="推荐：wallpaper engine"></a>推荐：wallpaper engine</h6></li></ul><p>拥有强大强大的创意工坊资源，<del>深受狼友们喜欢</del></p><p>这款软件可玩度还十分的高</p><p>不论是从网页导入，直接把你喜欢的网站设为桌面</p><p>还是用本地的html文件设为桌面进行一些简单的互动</p><p>又或者是把可执行程序exe设为桌面等等</p><p>有了它，你的桌面不再是不可交互的静态的图片或者简单的视频</p><h5 id="七、卸载软件"><a href="#七、卸载软件" class="headerlink" title="七、卸载软件"></a>七、卸载软件</h5><ul><li><h6 id="推荐：geek"><a href="#推荐：geek" class="headerlink" title="推荐：geek"></a>推荐：geek</h6><p>快速智能、简单洁净、强效清除</p><p>是一款很强大、体积还很小的卸载神器</p></li></ul><h5 id="八、搜索软件"><a href="#八、搜索软件" class="headerlink" title="八、搜索软件"></a>八、搜索软件</h5><ul><li><h6 id="推荐：Everything"><a href="#推荐：Everything" class="headerlink" title="推荐：Everything"></a>推荐：Everything</h6><p>可以快速的搜索到你想要找的文件，非常方便的一款搜索工具</p></li></ul><h5 id="九、清理软件"><a href="#九、清理软件" class="headerlink" title="九、清理软件"></a>九、清理软件</h5><ul><li><h6 id="推荐：Dism"><a href="#推荐：Dism" class="headerlink" title="推荐：Dism++"></a>推荐：Dism++</h6></li></ul><p>清理系统垃圾 </p><p>备份/还原系统  </p><p>优化系统等等</p><p> 很不错的一款系统工具</p><h5 id="十、网盘"><a href="#十、网盘" class="headerlink" title="十、网盘"></a>十、网盘</h5><ul><li><h6 id="推荐：Onedrive"><a href="#推荐：Onedrive" class="headerlink" title="推荐：Onedrive"></a>推荐：Onedrive</h6></li></ul><p>Windows10自带 不限速</p><p>普通用户虽然只有5G空间</p><p>但是用来备份一些会用到但是又不经常用的小文件还是很方便的</p><p>可以将文件完全备份至云端，需要时下载，节约空间</p><p>而且还有可以与手机同步，十分不错。</p><h5 id="十一、下载软件"><a href="#十一、下载软件" class="headerlink" title="十一、下载软件"></a>十一、下载软件</h5><ul><li><h6 id="推荐：IDM"><a href="#推荐：IDM" class="headerlink" title="推荐：IDM"></a>推荐：IDM</h6><p>非常好用的一款下载软件</p><p>可以下载网页上的视频音频等等</p><p>十分推荐懂的都懂。</p></li></ul><h5 id="十二、解压缩软件"><a href="#十二、解压缩软件" class="headerlink" title="十二、解压缩软件"></a>十二、解压缩软件</h5><ul><li><h6 id="推荐：WinRAR-无广告版"><a href="#推荐：WinRAR-无广告版" class="headerlink" title="推荐：WinRAR(无广告版)"></a>推荐：WinRAR(无广告版)</h6><p>这类软件没什么好说的</p><p>曾经也用过一段时间bandizip,也可以，任君选择</p></li></ul><h5 id="十三、效率软件"><a href="#十三、效率软件" class="headerlink" title="十三、效率软件"></a>十三、效率软件</h5><ul><li><h6 id="推荐软件：Quicker"><a href="#推荐软件：Quicker" class="headerlink" title="推荐软件：Quicker"></a>推荐软件：Quicker</h6></li></ul><p>功能：自动加载动作页、快速打开、模拟键盘输入、组合动作、云端存储、分享动作。</p><p>还有各种动作库，功能应有尽有，不夸张的说，每次进动作库你都能找到新的好东西。</p><p>再配合上面的软件</p><p>你可以</p><h6 id="一键完成以下操作"><a href="#一键完成以下操作" class="headerlink" title="一键完成以下操作"></a><strong>一键完成以下操作</strong></h6><ul><li><p>文字OCR识别</p></li><li><p>截图(可配合QQ长截图、录制GIF)</p></li><li><p>打开软件</p></li><li><p>打开网站</p></li><li><p>定时关机</p></li><li><p>搜索文字内容</p></li><li><p>显示/隐藏桌面图标等等……(实在太多了，一时罗列不清，还请亲自体验)</p></li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Win10相关 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>噫！我中了！</title>
-      <link href="/2020/05/20/lucky/"/>
-      <url>/2020/05/20/lucky/</url>
-      
-        <content type="html"><![CDATA[<p><strong><em>该贴记录我<del>大部分在B站</del>中的奖品！</em></strong></p><a id="more"></a><p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/006Ggs8Ygy1gnl3mjtqqbj304c03uq2s.jpg" alt="006Ggs8Ygy1gnl3mjtqqbj304c03uq2s" loading="lazy"></p><hr><h6 id="哔哩哔哩幻星集【星罗之匣】盒蛋-之一"><a href="#哔哩哔哩幻星集【星罗之匣】盒蛋-之一" class="headerlink" title="哔哩哔哩幻星集【星罗之匣】盒蛋 之一"></a>哔哩哔哩幻星集【星罗之匣】盒蛋 之一</h6><blockquote><p>我的小铺周日兑换奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220410_000026_tv.danmaku.bili.png" alt="Screenshot_20220410_000026_tv.danmaku.bili" loading="lazy"></p><hr><h6 id="幻星集-2233星穹之境文件夹"><a href="#幻星集-2233星穹之境文件夹" class="headerlink" title="幻星集||2233星穹之境文件夹"></a>幻星集||2233星穹之境文件夹</h6><blockquote><p>我的小铺 宝藏礼库抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220410_120213_tv.danmaku.bili.jpg" alt="Screenshot_20220410_120213_tv.danmaku.bili" loading="lazy"></p><hr><h6 id="青春湖北笔记本-、U盘-128GB"><a href="#青春湖北笔记本-、U盘-128GB" class="headerlink" title="青春湖北笔记本 、U盘 (128GB)"></a>青春湖北笔记本 、U盘 (128GB)</h6><blockquote><p>青春湖北 发起的 动态评论抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20220213_12554811.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220209_212922_tv.png" alt="Screenshot_20220209_212922_tv" loading="lazy"></p><hr><h6 id="TAIT0-刀剑神域-亚丝娜-结城明月-奈樱花和服Ver-景品手办"><a href="#TAIT0-刀剑神域-亚丝娜-结城明月-奈樱花和服Ver-景品手办" class="headerlink" title="TAIT0 刀剑神域 亚丝娜 结城明月 奈樱花和服Ver.景品手办"></a>TAIT0 刀剑神域 亚丝娜 结城明月 奈樱花和服Ver.景品手办</h6><blockquote><p>同学中奖转赠，可惜付了10R邮费，不算白嫖doge</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20220211_1936271.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/4ac5f1ad46bed8d_edit_325999546989838.jpg" alt="1" loading="lazy"></p><hr><h6 id="口罩一盒"><a href="#口罩一盒" class="headerlink" title="口罩一盒"></a>口罩一盒</h6><blockquote><p>青春湖北 微博转评抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport16450535071681.jpg" alt="mmexport1645053507168" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220207_143512_com.jpg" alt="" loading="lazy"></p><hr><h6 id="山东九品贡煎饼"><a href="#山东九品贡煎饼" class="headerlink" title="山东九品贡煎饼"></a>山东九品贡煎饼</h6><blockquote><p>地球村日记 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport16458791611211.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220203_170107_com.png" alt="Screenshot_20220203_170107_com" loading="lazy"></p><hr><h6 id="盒娘手办"><a href="#盒娘手办" class="headerlink" title="盒娘手办"></a>盒娘手办</h6><blockquote><p>小黑盒作者福利<del>一只又菜又鸽的鸽子受宠若惊doge</del></p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport1645251883910111.jpg" alt="mmexport1645251883910" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20220201_004544.png" alt="图叨叨_20220201_004544" loading="lazy"></p><hr><h6 id="哔哩哔哩12周年小电视积木"><a href="#哔哩哔哩12周年小电视积木" class="headerlink" title="哔哩哔哩12周年小电视积木"></a>哔哩哔哩12周年小电视积木</h6><blockquote><p>我的小铺</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport16453306659091.jpg" alt="mmexport1645330665909" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport16450880704261.jpg" alt="mmexport1645088070426" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20220130_0911511.jpg" alt="图叨叨_20220130_091151" loading="lazy"></p><hr><h6 id="安顺消防平安大礼包"><a href="#安顺消防平安大礼包" class="headerlink" title="安顺消防平安大礼包"></a>安顺消防平安大礼包</h6><blockquote><p>安顺消防 微博 评论区抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20220130_212240_01.jpg" alt="" loading="lazy"></p><p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20220124_164056_com.png" alt="Screenshot_20220124_164056_com" loading="lazy"></p><hr><h6 id="公仔盲盒"><a href="#公仔盲盒" class="headerlink" title="公仔盲盒"></a>公仔盲盒</h6><blockquote><p>青春上海 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20220130_1247201.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220121_204909_tv11.png" alt="" loading="lazy"></p><hr><h6 id="“青耕鸟”手办盲盒"><a href="#“青耕鸟”手办盲盒" class="headerlink" title="“青耕鸟”手办盲盒"></a>“青耕鸟”手办盲盒</h6><blockquote><p>青春上海 预约直播抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/qxlarge-dsc-60501AA1DD189C6CD656061A737B997211.jpg" alt="IMG_20220130_132359" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220121_204916_tv.png" alt="Screenshot_20220121_204916_tv" loading="lazy"></p><hr><h6 id="原道发烧级HIFI耳机"><a href="#原道发烧级HIFI耳机" class="headerlink" title="原道发烧级HIFI耳机"></a>原道发烧级HIFI耳机</h6><blockquote><p>搞机所 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20220123_190328_edit_199329004084111.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/qxlarge-dsc-59E8DA25475561681D5E438C07FFCE3E11.jpg" alt="" loading="lazy"></p><hr><h6 id="乖乖兔暖手袋"><a href="#乖乖兔暖手袋" class="headerlink" title="乖乖兔暖手袋"></a>乖乖兔暖手袋</h6><blockquote><p>广西共青团 动态点赞排行抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20220109_185355.jpg" alt="" loading="lazy"></p><hr><h6 id="青少年心理十万个为什么"><a href="#青少年心理十万个为什么" class="headerlink" title="青少年心理十万个为什么"></a>青少年心理十万个为什么</h6><blockquote><p>12355青小聊 发起的天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20211130_135254_0_edit_195717717403988.jpg" alt="" loading="lazy"></p><hr><h6 id="解放桥®襄阳牛肉面"><a href="#解放桥®襄阳牛肉面" class="headerlink" title="解放桥®襄阳牛肉面"></a>解放桥®襄阳牛肉面</h6><blockquote><p>青春襄阳 的评论抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20211113_15460311.jpg" alt="图叨叨_20211113_154603" loading="lazy"></p><hr><h6 id="小米移动电源3-10000mAh-快充版"><a href="#小米移动电源3-10000mAh-快充版" class="headerlink" title="小米移动电源3 10000mAh 快充版"></a>小米移动电源3 10000mAh 快充版</h6><blockquote><p>线下抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211023_22354311.jpg" alt="" loading="lazy"></p><hr><h6 id="飞利浦智睿床头灯"><a href="#飞利浦智睿床头灯" class="headerlink" title="飞利浦智睿床头灯"></a>飞利浦智睿床头灯</h6><blockquote><p>线下抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211016_213921.jpg" alt="IMG_20211016_214018" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211016_214018.jpg" alt="IMG_20211016_213921" loading="lazy"></p><hr><h6 id="血糖分析仪"><a href="#血糖分析仪" class="headerlink" title="血糖分析仪"></a>血糖分析仪</h6><blockquote><p>线下抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211016_21340111.jpg" alt="IMG_20211016_213401" loading="lazy"></p><hr><h6 id="10000mAh的充电宝"><a href="#10000mAh的充电宝" class="headerlink" title="10000mAh的充电宝"></a>10000mAh的充电宝</h6><blockquote><p>青春上海 的 微信视频号 抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport163195401912511.png" alt="mmexport1631954019125" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210913_160430.png" alt="Screenshot_20210913_160430" loading="lazy"></p><hr><h6 id="萌盒《咒术回战》毛绒击拳熊-周边-官方首发版"><a href="#萌盒《咒术回战》毛绒击拳熊-周边-官方首发版" class="headerlink" title="萌盒《咒术回战》毛绒击拳熊 周边 官方首发版"></a>萌盒《咒术回战》毛绒击拳熊 周边 官方首发版</h6><blockquote><p>919本命好物节-次元星球 活动抽奖</p></blockquote><p>哈哈，有点沙雕的小熊</p><p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img//2021/9/13/20210913_222913.gif" alt="20210913_222913" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210913_212627.jpg" alt="IMG_20210913_212627" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210910_090656_com.bilibili.app.blue.png" alt="" loading="lazy"></p><hr><h6 id="樱花和风折扇"><a href="#樱花和风折扇" class="headerlink" title="樱花和风折扇"></a>樱花和风折扇</h6><blockquote><p>B站的”兔兔日记“活动抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211003_193721.jpg" alt="IMG_20211003_193721" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109042007101111.png" alt="image-20210904200728545" loading="lazy"></p><hr><h6 id="遇·深林香水"><a href="#遇·深林香水" class="headerlink" title="遇·深林香水"></a>遇·深林香水</h6><blockquote><p>海信空调微信 小程序抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/2021090418471381.png" alt="image-20210904184709394" loading="lazy"></p><hr><h6 id="一个玩偶"><a href="#一个玩偶" class="headerlink" title="一个玩偶"></a>一个玩偶</h6><blockquote><p>青春上海 微信视频号 抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/2021090418449351.png" alt="image-20210904184419059" loading="lazy"></p><hr><h6 id="肥啾毛绒盲盒"><a href="#肥啾毛绒盲盒" class="headerlink" title="肥啾毛绒盲盒"></a>肥啾毛绒盲盒</h6><blockquote><p>夏日出逃大作战 转盘抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport1631618552683.png" alt="mmexport1631618552683" loading="lazy"></p><p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20210814_200056_tv.png" alt="" loading="lazy"></p><hr><h6 id="青春上海T恤"><a href="#青春上海T恤" class="headerlink" title="青春上海T恤"></a>青春上海T恤</h6><blockquote><p>青春上海 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210718_141431.jpg" alt="IMG_20210718_141431" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210708_152111_com.png" alt="" loading="lazy"></p><hr><h6 id="青春上海马克杯"><a href="#青春上海马克杯" class="headerlink" title="青春上海马克杯"></a>青春上海马克杯</h6><blockquote><p>青春上海 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109041842026.png" alt="image-20210904184229508" loading="lazy"></p><p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20210708_152135_com.png" alt="" loading="lazy"></p><hr><h6 id="家庭消防应急箱"><a href="#家庭消防应急箱" class="headerlink" title="家庭消防应急箱"></a>家庭消防应急箱</h6><blockquote><p>中国森林消防的动态抽奖</p></blockquote><p>后续不知为何没有收到发货，也联系过一起中奖的人，都没收到，遂取关该UP。</p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210706_125400_com.png" alt="" loading="lazy"></p><hr><h6 id="Tabula-Rasa元气组合"><a href="#Tabula-Rasa元气组合" class="headerlink" title="Tabula Rasa元气组合"></a>Tabula Rasa元气组合</h6><blockquote><p>种草大作战之特别篇</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210717_200113.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210629_182302.jpg" alt="" loading="lazy"></p><hr><h6 id="花间陌洗护三件套"><a href="#花间陌洗护三件套" class="headerlink" title="花间陌洗护三件套"></a>花间陌洗护三件套</h6><blockquote><p>橱窗小管家发起的 转发抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210601_221650_tv.png" alt="Screenshot_20210601_221650_tv" loading="lazy"></p><h6 id="2233学园便利贴"><a href="#2233学园便利贴" class="headerlink" title="2233学园便利贴"></a>2233学园便利贴</h6><blockquote><p>“和UP主一起嗨翻五月”活动转盘抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/qxlarge-dsc-928DA590F6579915D1590C0C92CED000.jpg" alt="" loading="lazy"></p><p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20210521_081411.jpg" alt="Screenshot_20210521_081411" loading="lazy"></p><hr><h6 id="哔哩哔哩小号樱花抱枕"><a href="#哔哩哔哩小号樱花抱枕" class="headerlink" title="哔哩哔哩小号樱花抱枕"></a>哔哩哔哩小号樱花抱枕</h6><blockquote><p>国风阁小书童 “穿越到大唐是什么体验” 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210527_130206.jpg" alt="IMG_20210527_130206" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210527_130157.jpg" alt="IMG_20210527_130157" loading="lazy"></p><p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20210521_102735_tv.png" alt="Screenshot_20210521_102735_tv" loading="lazy"></p><hr><h6 id="文创-青铜盲盒"><a href="#文创-青铜盲盒" class="headerlink" title="文创-青铜盲盒"></a>文创-青铜盲盒</h6><blockquote><p>哔哩哔哩创作中心 “穿越到大唐是什么体验” 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210527_130303.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210518_184738_com.png" alt="Screenshot_20210518_184738_com" loading="lazy"></p><hr><h6 id="团团定制“逢考必过”笔记本"><a href="#团团定制“逢考必过”笔记本" class="headerlink" title="团团定制“逢考必过”笔记本"></a>团团定制“逢考必过”笔记本</h6><blockquote><p>共青团中央 发起的 微信小程序抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210519_190210.jpg" alt="IMG_20210519_190210" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210510_223708_com.png" alt="Screenshot_20210510_223708_com" loading="lazy"></p><hr><h6 id="台灯一台"><a href="#台灯一台" class="headerlink" title="台灯一台"></a>台灯一台</h6><blockquote><p>天津共青团 赠送的礼物</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210513_192442.jpg" alt="IMG_20210513_192442" loading="lazy"></p><p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/Screenshot_20210510_224108.png" alt="Screenshot_20210510_224108" loading="lazy"></p><hr><h6 id="轩妈蛋黄酥"><a href="#轩妈蛋黄酥" class="headerlink" title="轩妈蛋黄酥"></a>轩妈蛋黄酥</h6><blockquote><p>“最强搞事王2-玩梗达人”活动 转盘抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210603_170608.jpg" alt="IMG_20210603_170608" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210507_225121_com.png" alt="Screenshot_20210507_225121_com" loading="lazy"></p><hr><h6 id="萌萌象帆布包-3"><a href="#萌萌象帆布包-3" class="headerlink" title="萌萌象帆布包*3"></a>萌萌象帆布包*3</h6><blockquote><p>“种草大作战特别篇”活动 转盘抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210601_221945.jpg" alt="IMG_20210601_221945" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210507_224458_tv.png" alt="Screenshot_20210507_224458_tv" loading="lazy"></p><hr><h6 id="BW2020广州场2233娘手办"><a href="#BW2020广州场2233娘手办" class="headerlink" title="BW2020广州场2233娘手办"></a>BW2020广州场2233娘手办</h6><blockquote><p>哔哩哔哩活动“五一带薪难过” 转盘抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210512_191256.jpg" alt="IMG_20210512_191256" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210503_163924_com.jpg" alt="Screenshot_20210503_163924_com" loading="lazy"></p><hr><h6 id="哔哩哔哩小电视变形火箭毛绒公仔周边"><a href="#哔哩哔哩小电视变形火箭毛绒公仔周边" class="headerlink" title="哔哩哔哩小电视变形火箭毛绒公仔周边"></a>哔哩哔哩小电视变形火箭毛绒公仔周边</h6><blockquote><p>哔哩哔哩活动“五一带薪难过”转盘抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210512_224213.jpg" alt="IMG_20210512_224213" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210503_161551_tv.jpg" alt="Screenshot_20210503_161551_tv" loading="lazy"></p><hr><h6 id="鲸鱼人工智能机器人套装"><a href="#鲸鱼人工智能机器人套装" class="headerlink" title="鲸鱼人工智能机器人套装"></a>鲸鱼人工智能机器人套装</h6><blockquote><p>来自 青春上海 的天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210425_194837.jpg" alt="IMG" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210425_194655.jpg" alt="IMG" loading="lazy"></p><hr><h6 id="5-2元红包一个"><a href="#5-2元红包一个" class="headerlink" title="5.2元红包一个"></a>5.2元红包一个</h6><blockquote><p>来自 略略可吓哭了呢的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1go89tdypqlj30sz0orgpn.jpg" alt="Screenshot_20210304_230301_tv.danmaku.bili.png" loading="lazy"></p><hr><h6 id="春联、便利贴、贺语一张"><a href="#春联、便利贴、贺语一张" class="headerlink" title="春联、便利贴、贺语一张"></a>春联、便利贴、贺语一张</h6><blockquote><p>来自 内蒙古共青团 的应援团福利</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nk0z21j32402tcb2a.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nm6z8xj32402tce82.jpg" alt="" loading="lazy"></p><hr><h6 id="旺旺大礼包-2-小米养生保温杯、团仔小桂钥匙扣-4、红米充电宝"><a href="#旺旺大礼包-2-小米养生保温杯、团仔小桂钥匙扣-4、红米充电宝" class="headerlink" title="旺旺大礼包 *2  小米养生保温杯、团仔小桂钥匙扣 *4、红米充电宝"></a>旺旺大礼包 *2  小米养生保温杯、团仔小桂钥匙扣 *4、红米充电宝</h6><blockquote><p>来自 广西共青团 的动态抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210503_202958.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nkc1thj32402tcb29.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210503_202950.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3n4jh4qj32402tce81.jpg" alt="" loading="lazy"></p><hr><h6 id="玫琳凯口红-2"><a href="#玫琳凯口红-2" class="headerlink" title="玫琳凯口红 *2"></a>玫琳凯口红 *2</h6><blockquote><p>来自 青春上海 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nlvbrmj32tc240e81.jpg" alt="" loading="lazy"></p><hr><h6 id="青年大学习卡套"><a href="#青年大学习卡套" class="headerlink" title="青年大学习卡套"></a>青年大学习卡套</h6><blockquote><p>青春上海 发起的 天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/a2cc7cd98d1001e913306070a80e7bec54e79744.jpg" alt="" loading="lazy"></p><hr><h6 id="麦当劳帽子-2"><a href="#麦当劳帽子-2" class="headerlink" title="麦当劳帽子 *2"></a>麦当劳帽子 *2</h6><blockquote><p>青春上海 的奖品</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3no9jwoj32402tchdu.jpg" alt="" loading="lazy"></p><hr><h6 id="一把扇子"><a href="#一把扇子" class="headerlink" title="一把扇子"></a>一把扇子</h6><blockquote><p>青春上海的奖品</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210507_205135.jpg" alt="IMG_20210507_205135" loading="lazy"></p><hr><h6 id="小电视抱枕（小号）-2"><a href="#小电视抱枕（小号）-2" class="headerlink" title="小电视抱枕（小号）*2"></a>小电视抱枕（小号）*2</h6><blockquote><p>来自 B站”vivo X60系列拍出电影级大片“转盘活动 、直播学院 发起的天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nqrr8hj32402tcnpd.jpg" alt="" loading="lazy"></p><hr><h6 id="多合一数据线-2"><a href="#多合一数据线-2" class="headerlink" title="多合一数据线*2"></a>多合一数据线*2</h6><blockquote><p>来自 华为云 官方直播抽奖和 JOKER鹏少 的动态抽奖</p><p>其中一件遗失~ </p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3o3vmayj32402tcx6s.jpg" alt="" loading="lazy"></p><hr><h6 id="佰草集套装"><a href="#佰草集套装" class="headerlink" title="佰草集套装"></a>佰草集套装</h6><blockquote><p>来自 青春上海 发起的天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3mqzyssj30qo0zk41g.jpg" alt="" loading="lazy"></p><hr><h6 id="茶颜悦色甲胄杯子"><a href="#茶颜悦色甲胄杯子" class="headerlink" title="茶颜悦色甲胄杯子"></a>茶颜悦色甲胄杯子</h6><blockquote><p> 来自 茶颜悦色 的动态抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/cy.jpg" alt="" loading="lazy"></p><hr><h6 id="吃豆人礼盒"><a href="#吃豆人礼盒" class="headerlink" title="吃豆人礼盒"></a>吃豆人礼盒</h6><blockquote><p> 来自 阿里鱼 的应援团抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3mq7ui2j31400u0ad5.jpg" alt="" loading="lazy"></p><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/9592eb3cdbb2498fa2b95111205b47721.jpeg" alt="" loading="lazy"></p><hr><h6 id="轩妈蛋黄酥-1"><a href="#轩妈蛋黄酥-1" class="headerlink" title="轩妈蛋黄酥"></a>轩妈蛋黄酥</h6><blockquote><p>来自 阿里巴巴客服  的动态抽奖</p><p>吃完了莫得照片~~</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3n1mou6j30tj0rvdp01.jpg" alt="" loading="lazy"></p><hr><h6 id="《公式之美》"><a href="#《公式之美》" class="headerlink" title="《公式之美》"></a>《公式之美》</h6><blockquote><p>来自 中科院中国科普博览 的动态抽奖</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3mxmelwj30o017y0zb1.jpg" alt="" loading="lazy"></p><hr><h6 id="一本书"><a href="#一本书" class="headerlink" title="一本书"></a>一本书</h6><blockquote><p>B站天津共青团送的，忘记叫啥了doge</p></blockquote><hr><h6 id="周黑鸭卤味套餐"><a href="#周黑鸭卤味套餐" class="headerlink" title="周黑鸭卤味套餐"></a>周黑鸭卤味套餐</h6><blockquote><p> 来自 B站  “天猫618超级买家秀”转盘活动</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/1111222.jpg" alt="" loading="lazy"></p><hr><h6 id="荣耀X10"><a href="#荣耀X10" class="headerlink" title="荣耀X10"></a>荣耀X10</h6><blockquote><p>来自 荣耀手机 发起的天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nptu13j32o03k0.jpg" alt="" loading="lazy"></p><hr><h6 id="麒麟820芯片"><a href="#麒麟820芯片" class="headerlink" title="麒麟820芯片"></a>麒麟820芯片</h6><blockquote><p>来自 荣耀手机 发起的天选时刻</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3o0wgyoj32402t.jpg" alt="" loading="lazy">     </p><p>​                                                          到底了~</p>]]></content>
-      
-      
+      <tags>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>噫！我中了！</title>
+    <url>/2020/05/20/lucky/</url>
+    <content><![CDATA[<p><strong><em>该贴记录我<del>大部分在B站</del>中的奖品！</em></strong></p>
+<a id="more"></a>
+
+<p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/006Ggs8Ygy1gnl3mjtqqbj304c03uq2s.jpg" alt="006Ggs8Ygy1gnl3mjtqqbj304c03uq2s" loading="lazy"></p>
+<hr>
+<h6 id="哔哩哔哩幻星集【星罗之匣】盒蛋-之一"><a href="#哔哩哔哩幻星集【星罗之匣】盒蛋-之一" class="headerlink" title="哔哩哔哩幻星集【星罗之匣】盒蛋 之一"></a>哔哩哔哩幻星集【星罗之匣】盒蛋 之一</h6><blockquote>
+<p>我的小铺周日兑换奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220410_000026_tv.danmaku.bili.png" alt="Screenshot_20220410_000026_tv.danmaku.bili" loading="lazy"></p>
+<hr>
+<h6 id="幻星集-2233星穹之境文件夹"><a href="#幻星集-2233星穹之境文件夹" class="headerlink" title="幻星集||2233星穹之境文件夹"></a>幻星集||2233星穹之境文件夹</h6><blockquote>
+<p>我的小铺 宝藏礼库抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220410_120213_tv.danmaku.bili.jpg" alt="Screenshot_20220410_120213_tv.danmaku.bili" loading="lazy"></p>
+<hr>
+<h6 id="青春湖北笔记本-、U盘-128GB"><a href="#青春湖北笔记本-、U盘-128GB" class="headerlink" title="青春湖北笔记本 、U盘 (128GB)"></a>青春湖北笔记本 、U盘 (128GB)</h6><blockquote>
+<p>青春湖北 发起的 动态评论抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20220213_12554811.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220209_212922_tv.png" alt="Screenshot_20220209_212922_tv" loading="lazy"></p>
+<hr>
+<h6 id="TAIT0-刀剑神域-亚丝娜-结城明月-奈樱花和服Ver-景品手办"><a href="#TAIT0-刀剑神域-亚丝娜-结城明月-奈樱花和服Ver-景品手办" class="headerlink" title="TAIT0 刀剑神域 亚丝娜 结城明月 奈樱花和服Ver.景品手办"></a>TAIT0 刀剑神域 亚丝娜 结城明月 奈樱花和服Ver.景品手办</h6><blockquote>
+<p>同学中奖转赠，可惜付了10R邮费，不算白嫖doge</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20220211_1936271.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/4ac5f1ad46bed8d_edit_325999546989838.jpg" alt="1" loading="lazy"></p>
+<hr>
+<h6 id="口罩一盒"><a href="#口罩一盒" class="headerlink" title="口罩一盒"></a>口罩一盒</h6><blockquote>
+<p>青春湖北 微博转评抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport16450535071681.jpg" alt="mmexport1645053507168" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220207_143512_com.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="山东九品贡煎饼"><a href="#山东九品贡煎饼" class="headerlink" title="山东九品贡煎饼"></a>山东九品贡煎饼</h6><blockquote>
+<p>地球村日记 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport16458791611211.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220203_170107_com.png" alt="Screenshot_20220203_170107_com" loading="lazy"></p>
+<hr>
+<h6 id="盒娘手办"><a href="#盒娘手办" class="headerlink" title="盒娘手办"></a>盒娘手办</h6><blockquote>
+<p>小黑盒作者福利<del>一只又菜又鸽的鸽子受宠若惊doge</del></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport1645251883910111.jpg" alt="mmexport1645251883910" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20220201_004544.png" alt="图叨叨_20220201_004544" loading="lazy"></p>
+<hr>
+<h6 id="哔哩哔哩12周年小电视积木"><a href="#哔哩哔哩12周年小电视积木" class="headerlink" title="哔哩哔哩12周年小电视积木"></a>哔哩哔哩12周年小电视积木</h6><blockquote>
+<p>我的小铺</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport16453306659091.jpg" alt="mmexport1645330665909" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport16450880704261.jpg" alt="mmexport1645088070426" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20220130_0911511.jpg" alt="图叨叨_20220130_091151" loading="lazy"></p>
+<hr>
+<h6 id="安顺消防平安大礼包"><a href="#安顺消防平安大礼包" class="headerlink" title="安顺消防平安大礼包"></a>安顺消防平安大礼包</h6><blockquote>
+<p>安顺消防 微博 评论区抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20220130_212240_01.jpg" alt="" loading="lazy"></p>
+<p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20220124_164056_com.png" alt="Screenshot_20220124_164056_com" loading="lazy"></p>
+<hr>
+<h6 id="公仔盲盒"><a href="#公仔盲盒" class="headerlink" title="公仔盲盒"></a>公仔盲盒</h6><blockquote>
+<p>青春上海 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20220130_1247201.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220121_204909_tv11.png" alt="" loading="lazy"></p>
+<hr>
+<h6 id="“青耕鸟”手办盲盒"><a href="#“青耕鸟”手办盲盒" class="headerlink" title="“青耕鸟”手办盲盒"></a>“青耕鸟”手办盲盒</h6><blockquote>
+<p>青春上海 预约直播抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/qxlarge-dsc-60501AA1DD189C6CD656061A737B997211.jpg" alt="IMG_20220130_132359" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20220121_204916_tv.png" alt="Screenshot_20220121_204916_tv" loading="lazy"></p>
+<hr>
+<h6 id="原道发烧级HIFI耳机"><a href="#原道发烧级HIFI耳机" class="headerlink" title="原道发烧级HIFI耳机"></a>原道发烧级HIFI耳机</h6><blockquote>
+<p>搞机所 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20220123_190328_edit_199329004084111.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/qxlarge-dsc-59E8DA25475561681D5E438C07FFCE3E11.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="乖乖兔暖手袋"><a href="#乖乖兔暖手袋" class="headerlink" title="乖乖兔暖手袋"></a>乖乖兔暖手袋</h6><blockquote>
+<p>广西共青团 动态点赞排行抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20220109_185355.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="青少年心理十万个为什么"><a href="#青少年心理十万个为什么" class="headerlink" title="青少年心理十万个为什么"></a>青少年心理十万个为什么</h6><blockquote>
+<p>12355青小聊 发起的天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20211130_135254_0_edit_195717717403988.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="解放桥®襄阳牛肉面"><a href="#解放桥®襄阳牛肉面" class="headerlink" title="解放桥®襄阳牛肉面"></a>解放桥®襄阳牛肉面</h6><blockquote>
+<p>青春襄阳 的评论抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E5%9B%BE%E5%8F%A8%E5%8F%A8_20211113_15460311.jpg" alt="图叨叨_20211113_154603" loading="lazy"></p>
+<hr>
+<h6 id="小米移动电源3-10000mAh-快充版"><a href="#小米移动电源3-10000mAh-快充版" class="headerlink" title="小米移动电源3 10000mAh 快充版"></a>小米移动电源3 10000mAh 快充版</h6><blockquote>
+<p>线下抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211023_22354311.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="飞利浦智睿床头灯"><a href="#飞利浦智睿床头灯" class="headerlink" title="飞利浦智睿床头灯"></a>飞利浦智睿床头灯</h6><blockquote>
+<p>线下抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211016_213921.jpg" alt="IMG_20211016_214018" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211016_214018.jpg" alt="IMG_20211016_213921" loading="lazy"></p>
+<hr>
+<h6 id="血糖分析仪"><a href="#血糖分析仪" class="headerlink" title="血糖分析仪"></a>血糖分析仪</h6><blockquote>
+<p>线下抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211016_21340111.jpg" alt="IMG_20211016_213401" loading="lazy"></p>
+<hr>
+<h6 id="10000mAh的充电宝"><a href="#10000mAh的充电宝" class="headerlink" title="10000mAh的充电宝"></a>10000mAh的充电宝</h6><blockquote>
+<p>青春上海 的 微信视频号 抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport163195401912511.png" alt="mmexport1631954019125" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210913_160430.png" alt="Screenshot_20210913_160430" loading="lazy"></p>
+<hr>
+<h6 id="萌盒《咒术回战》毛绒击拳熊-周边-官方首发版"><a href="#萌盒《咒术回战》毛绒击拳熊-周边-官方首发版" class="headerlink" title="萌盒《咒术回战》毛绒击拳熊 周边 官方首发版"></a>萌盒《咒术回战》毛绒击拳熊 周边 官方首发版</h6><blockquote>
+<p>919本命好物节-次元星球 活动抽奖</p>
+</blockquote>
+<p>哈哈，有点沙雕的小熊</p>
+<p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img//2021/9/13/20210913_222913.gif" alt="20210913_222913" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210913_212627.jpg" alt="IMG_20210913_212627" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210910_090656_com.bilibili.app.blue.png" alt="" loading="lazy"></p>
+<hr>
+<h6 id="樱花和风折扇"><a href="#樱花和风折扇" class="headerlink" title="樱花和风折扇"></a>樱花和风折扇</h6><blockquote>
+<p>B站的”兔兔日记“活动抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20211003_193721.jpg" alt="IMG_20211003_193721" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109042007101111.png" alt="image-20210904200728545" loading="lazy"></p>
+<hr>
+<h6 id="遇·深林香水"><a href="#遇·深林香水" class="headerlink" title="遇·深林香水"></a>遇·深林香水</h6><blockquote>
+<p>海信空调微信 小程序抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/2021090418471381.png" alt="image-20210904184709394" loading="lazy"></p>
+<hr>
+<h6 id="一个玩偶"><a href="#一个玩偶" class="headerlink" title="一个玩偶"></a>一个玩偶</h6><blockquote>
+<p>青春上海 微信视频号 抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/2021090418449351.png" alt="image-20210904184419059" loading="lazy"></p>
+<hr>
+<h6 id="肥啾毛绒盲盒"><a href="#肥啾毛绒盲盒" class="headerlink" title="肥啾毛绒盲盒"></a>肥啾毛绒盲盒</h6><blockquote>
+<p>夏日出逃大作战 转盘抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/mmexport1631618552683.png" alt="mmexport1631618552683" loading="lazy"></p>
+<p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20210814_200056_tv.png" alt="" loading="lazy"></p>
+<hr>
+<h6 id="青春上海T恤"><a href="#青春上海T恤" class="headerlink" title="青春上海T恤"></a>青春上海T恤</h6><blockquote>
+<p>青春上海 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210718_141431.jpg" alt="IMG_20210718_141431" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210708_152111_com.png" alt="" loading="lazy"></p>
+<hr>
+<h6 id="青春上海马克杯"><a href="#青春上海马克杯" class="headerlink" title="青春上海马克杯"></a>青春上海马克杯</h6><blockquote>
+<p>青春上海 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/202109041842026.png" alt="image-20210904184229508" loading="lazy"></p>
+<p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20210708_152135_com.png" alt="" loading="lazy"></p>
+<hr>
+<h6 id="家庭消防应急箱"><a href="#家庭消防应急箱" class="headerlink" title="家庭消防应急箱"></a>家庭消防应急箱</h6><blockquote>
+<p>中国森林消防的动态抽奖</p>
+</blockquote>
+<p>后续不知为何没有收到发货，也联系过一起中奖的人，都没收到，遂取关该UP。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210706_125400_com.png" alt="" loading="lazy"></p>
+<hr>
+<h6 id="Tabula-Rasa元气组合"><a href="#Tabula-Rasa元气组合" class="headerlink" title="Tabula Rasa元气组合"></a>Tabula Rasa元气组合</h6><blockquote>
+<p>种草大作战之特别篇</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210717_200113.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210629_182302.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="花间陌洗护三件套"><a href="#花间陌洗护三件套" class="headerlink" title="花间陌洗护三件套"></a>花间陌洗护三件套</h6><blockquote>
+<p>橱窗小管家发起的 转发抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210601_221650_tv.png" alt="Screenshot_20210601_221650_tv" loading="lazy"></p>
+<h6 id="2233学园便利贴"><a href="#2233学园便利贴" class="headerlink" title="2233学园便利贴"></a>2233学园便利贴</h6><blockquote>
+<p>“和UP主一起嗨翻五月”活动转盘抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/qxlarge-dsc-928DA590F6579915D1590C0C92CED000.jpg" alt="" loading="lazy"></p>
+<p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20210521_081411.jpg" alt="Screenshot_20210521_081411" loading="lazy"></p>
+<hr>
+<h6 id="哔哩哔哩小号樱花抱枕"><a href="#哔哩哔哩小号樱花抱枕" class="headerlink" title="哔哩哔哩小号樱花抱枕"></a>哔哩哔哩小号樱花抱枕</h6><blockquote>
+<p>国风阁小书童 “穿越到大唐是什么体验” 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210527_130206.jpg" alt="IMG_20210527_130206" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210527_130157.jpg" alt="IMG_20210527_130157" loading="lazy"></p>
+<p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/img/Screenshot_20210521_102735_tv.png" alt="Screenshot_20210521_102735_tv" loading="lazy"></p>
+<hr>
+<h6 id="文创-青铜盲盒"><a href="#文创-青铜盲盒" class="headerlink" title="文创-青铜盲盒"></a>文创-青铜盲盒</h6><blockquote>
+<p>哔哩哔哩创作中心 “穿越到大唐是什么体验” 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210527_130303.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210518_184738_com.png" alt="Screenshot_20210518_184738_com" loading="lazy"></p>
+<hr>
+<h6 id="团团定制“逢考必过”笔记本"><a href="#团团定制“逢考必过”笔记本" class="headerlink" title="团团定制“逢考必过”笔记本"></a>团团定制“逢考必过”笔记本</h6><blockquote>
+<p>共青团中央 发起的 微信小程序抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210519_190210.jpg" alt="IMG_20210519_190210" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210510_223708_com.png" alt="Screenshot_20210510_223708_com" loading="lazy"></p>
+<hr>
+<h6 id="台灯一台"><a href="#台灯一台" class="headerlink" title="台灯一台"></a>台灯一台</h6><blockquote>
+<p>天津共青团 赠送的礼物</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210513_192442.jpg" alt="IMG_20210513_192442" loading="lazy"></p>
+<p><img src="https://awslnobad.coding.net/p/picture/d/picture/git/raw/master/Screenshot_20210510_224108.png" alt="Screenshot_20210510_224108" loading="lazy"></p>
+<hr>
+<h6 id="轩妈蛋黄酥"><a href="#轩妈蛋黄酥" class="headerlink" title="轩妈蛋黄酥"></a>轩妈蛋黄酥</h6><blockquote>
+<p>“最强搞事王2-玩梗达人”活动 转盘抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210603_170608.jpg" alt="IMG_20210603_170608" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210507_225121_com.png" alt="Screenshot_20210507_225121_com" loading="lazy"></p>
+<hr>
+<h6 id="萌萌象帆布包-3"><a href="#萌萌象帆布包-3" class="headerlink" title="萌萌象帆布包*3"></a>萌萌象帆布包*3</h6><blockquote>
+<p>“种草大作战特别篇”活动 转盘抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210601_221945.jpg" alt="IMG_20210601_221945" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210507_224458_tv.png" alt="Screenshot_20210507_224458_tv" loading="lazy"></p>
+<hr>
+<h6 id="BW2020广州场2233娘手办"><a href="#BW2020广州场2233娘手办" class="headerlink" title="BW2020广州场2233娘手办"></a>BW2020广州场2233娘手办</h6><blockquote>
+<p>哔哩哔哩活动“五一带薪难过” 转盘抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210512_191256.jpg" alt="IMG_20210512_191256" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210503_163924_com.jpg" alt="Screenshot_20210503_163924_com" loading="lazy"></p>
+<hr>
+<h6 id="哔哩哔哩小电视变形火箭毛绒公仔周边"><a href="#哔哩哔哩小电视变形火箭毛绒公仔周边" class="headerlink" title="哔哩哔哩小电视变形火箭毛绒公仔周边"></a>哔哩哔哩小电视变形火箭毛绒公仔周边</h6><blockquote>
+<p>哔哩哔哩活动“五一带薪难过”转盘抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210512_224213.jpg" alt="IMG_20210512_224213" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/Screenshot_20210503_161551_tv.jpg" alt="Screenshot_20210503_161551_tv" loading="lazy"></p>
+<hr>
+<h6 id="鲸鱼人工智能机器人套装"><a href="#鲸鱼人工智能机器人套装" class="headerlink" title="鲸鱼人工智能机器人套装"></a>鲸鱼人工智能机器人套装</h6><blockquote>
+<p>来自 青春上海 的天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210425_194837.jpg" alt="IMG" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210425_194655.jpg" alt="IMG" loading="lazy"></p>
+<hr>
+<h6 id="5-2元红包一个"><a href="#5-2元红包一个" class="headerlink" title="5.2元红包一个"></a>5.2元红包一个</h6><blockquote>
+<p>来自 略略可吓哭了呢的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1go89tdypqlj30sz0orgpn.jpg" alt="Screenshot_20210304_230301_tv.danmaku.bili.png" loading="lazy"></p>
+<hr>
+<h6 id="春联、便利贴、贺语一张"><a href="#春联、便利贴、贺语一张" class="headerlink" title="春联、便利贴、贺语一张"></a>春联、便利贴、贺语一张</h6><blockquote>
+<p>来自 内蒙古共青团 的应援团福利</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nk0z21j32402tcb2a.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nm6z8xj32402tce82.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="旺旺大礼包-2-小米养生保温杯、团仔小桂钥匙扣-4、红米充电宝"><a href="#旺旺大礼包-2-小米养生保温杯、团仔小桂钥匙扣-4、红米充电宝" class="headerlink" title="旺旺大礼包 *2  小米养生保温杯、团仔小桂钥匙扣 *4、红米充电宝"></a>旺旺大礼包 *2  小米养生保温杯、团仔小桂钥匙扣 *4、红米充电宝</h6><blockquote>
+<p>来自 广西共青团 的动态抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210503_202958.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nkc1thj32402tcb29.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210503_202950.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3n4jh4qj32402tce81.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="玫琳凯口红-2"><a href="#玫琳凯口红-2" class="headerlink" title="玫琳凯口红 *2"></a>玫琳凯口红 *2</h6><blockquote>
+<p>来自 青春上海 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nlvbrmj32tc240e81.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="青年大学习卡套"><a href="#青年大学习卡套" class="headerlink" title="青年大学习卡套"></a>青年大学习卡套</h6><blockquote>
+<p>青春上海 发起的 天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/a2cc7cd98d1001e913306070a80e7bec54e79744.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="麦当劳帽子-2"><a href="#麦当劳帽子-2" class="headerlink" title="麦当劳帽子 *2"></a>麦当劳帽子 *2</h6><blockquote>
+<p>青春上海 的奖品</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3no9jwoj32402tchdu.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="一把扇子"><a href="#一把扇子" class="headerlink" title="一把扇子"></a>一把扇子</h6><blockquote>
+<p>青春上海的奖品</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/IMG_20210507_205135.jpg" alt="IMG_20210507_205135" loading="lazy"></p>
+<hr>
+<h6 id="小电视抱枕（小号）-2"><a href="#小电视抱枕（小号）-2" class="headerlink" title="小电视抱枕（小号）*2"></a>小电视抱枕（小号）*2</h6><blockquote>
+<p>来自 B站”vivo X60系列拍出电影级大片“转盘活动 、直播学院 发起的天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nqrr8hj32402tcnpd.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="多合一数据线-2"><a href="#多合一数据线-2" class="headerlink" title="多合一数据线*2"></a>多合一数据线*2</h6><blockquote>
+<p>来自 华为云 官方直播抽奖和 JOKER鹏少 的动态抽奖</p>
+<p>其中一件遗失~ </p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3o3vmayj32402tcx6s.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="佰草集套装"><a href="#佰草集套装" class="headerlink" title="佰草集套装"></a>佰草集套装</h6><blockquote>
+<p>来自 青春上海 发起的天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3mqzyssj30qo0zk41g.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="茶颜悦色甲胄杯子"><a href="#茶颜悦色甲胄杯子" class="headerlink" title="茶颜悦色甲胄杯子"></a>茶颜悦色甲胄杯子</h6><blockquote>
+<p> 来自 茶颜悦色 的动态抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/cy.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="吃豆人礼盒"><a href="#吃豆人礼盒" class="headerlink" title="吃豆人礼盒"></a>吃豆人礼盒</h6><blockquote>
+<p> 来自 阿里鱼 的应援团抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3mq7ui2j31400u0ad5.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/9592eb3cdbb2498fa2b95111205b47721.jpeg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="轩妈蛋黄酥-1"><a href="#轩妈蛋黄酥-1" class="headerlink" title="轩妈蛋黄酥"></a>轩妈蛋黄酥</h6><blockquote>
+<p>来自 阿里巴巴客服  的动态抽奖</p>
+<p>吃完了莫得照片~~</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3n1mou6j30tj0rvdp01.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="《公式之美》"><a href="#《公式之美》" class="headerlink" title="《公式之美》"></a>《公式之美》</h6><blockquote>
+<p>来自 中科院中国科普博览 的动态抽奖</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3mxmelwj30o017y0zb1.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="一本书"><a href="#一本书" class="headerlink" title="一本书"></a>一本书</h6><blockquote>
+<p>B站天津共青团送的，忘记叫啥了doge</p>
+</blockquote>
+<hr>
+<h6 id="周黑鸭卤味套餐"><a href="#周黑鸭卤味套餐" class="headerlink" title="周黑鸭卤味套餐"></a>周黑鸭卤味套餐</h6><blockquote>
+<p> 来自 B站  “天猫618超级买家秀”转盘活动</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/1111222.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="荣耀X10"><a href="#荣耀X10" class="headerlink" title="荣耀X10"></a>荣耀X10</h6><blockquote>
+<p>来自 荣耀手机 发起的天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3nptu13j32o03k0.jpg" alt="" loading="lazy"></p>
+<hr>
+<h6 id="麒麟820芯片"><a href="#麒麟820芯片" class="headerlink" title="麒麟820芯片"></a>麒麟820芯片</h6><blockquote>
+<p>来自 荣耀手机 发起的天选时刻</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/006Ggs8Ygy1gnl3o0wgyoj32402t.jpg" alt="" loading="lazy">     </p>
+<p>​                                                          到底了~</p>
+]]></content>
       <categories>
-          
-          <category> 脱非入欧 </category>
-          
+        <category>脱非入欧</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>一招解决 steam验证登录信息失败问题</title>
-      <link href="/2020/05/15/steamfalse/"/>
-      <url>/2020/05/15/steamfalse/</url>
-      
-        <content type="html"><![CDATA[<p>用steam客户端购买游戏或者订阅Mod的时候，会弹出【正在验证登录信息】的界面，然后登陆失败。</p><a id="more"></a><p>尽管你已经登陆了steam，但是好像没有登陆到steam服务器上，你就算是重新登录、翻墙、使用steamcommunity插件、使用加速器、电脑杀毒什么的都解决不了这个问题。而用浏览器登陆steam却能购买游戏。</p><p><img src="https://file.moetu.org/images/2020/05/12/1223317c88a5c86be.png" alt="" loading="lazy"></p><p><img src="https://file.moetu.org/images/2020/05/12/231c3cc1dc16133fd.png" alt="" loading="lazy"></p><p>解决方法：如下图，选择steam客服端左上角的【帮助】菜单-&gt;steam客服-&gt;登陆steam</p><p><img src="https://file.moetu.org/images/2020/05/12/3f532d6d875af328f.png" alt="" loading="lazy"></p><p>在此成功登陆后即可解决</p><p>若出现乱码，请用加速器重试。</p>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>OneManager</title>
+    <url>/2021/08/28/onemanager/</url>
+    <content><![CDATA[<h2 id="源仓库"><a href="#源仓库" class="headerlink" title="源仓库"></a>源仓库</h2><p><a href="https://github.com/qkqpttgf/OneManager-php" target="_blank" rel="noopener">https://github.com/qkqpttgf/OneManager-php</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这一步特别简单，基本按照提示来就好了</p>
+<h2 id="设置-美化"><a href="#设置-美化" class="headerlink" title="设置/美化"></a>设置/美化</h2><p><img src="https://magenchun.cn/wp-content/uploads/onemanager-platform-variables.png" alt="img" loading="lazy"></p>
+<h4 id="adminloginpage"><a href="#adminloginpage" class="headerlink" title="adminloginpage"></a>adminloginpage</h4><p>自定义登录地址，设置后就会隐藏登录按钮(有些主题本来就没有登录按钮)，登录时需要手动在网盘地址后加上?你设置的值进行登录。<br>比如设置为cloud，那么你只能通过<a href="http://xxx.com/xxx?cloud地址来登录" target="_blank" rel="noopener">http://xxx.com/xxx?cloud地址来登录</a> 。</p>
+<h4 id="background"><a href="#background" class="headerlink" title="background"></a>background</h4><p>填入一个 图片/api 的url地址<br><a href="https://film.magenchun.cn/bing.php" target="_blank" rel="noopener">https://film.magenchun.cn/bing.php</a> (每日必应)<br><a href="https://api.ixiaowai.cn/api/api.php" target="_blank" rel="noopener">https://api.ixiaowai.cn/api/api.php</a> (二次元动漫)<br><a href="http://www.dmoe.cc/random.php（二次元随机图）" target="_blank" rel="noopener">http://www.dmoe.cc/random.php（二次元随机图）</a><br><a href="https://api.ixiaowai.cn/mcapi/mcapi.php" target="_blank" rel="noopener">https://api.ixiaowai.cn/mcapi/mcapi.php</a> （menhera酱）<br><a href="https://api.ixiaowai.cn/gqapi/gqapi.php" target="_blank" rel="noopener">https://api.ixiaowai.cn/gqapi/gqapi.php</a> （a风景）<br><a href="https://acg.yanwz.cn/wallpaper/api.php（二次元随机图）" target="_blank" rel="noopener">https://acg.yanwz.cn/wallpaper/api.php（二次元随机图）</a></p>
+<h4 id="customCss"><a href="#customCss" class="headerlink" title="customCss"></a>customCss</h4><pre><code>#自定义ccs，例如隐藏语言栏
+
+&lt;style&gt;.changelanguage{display:none}&lt;/style&gt;</code></pre><h4 id="customScript"><a href="#customScript" class="headerlink" title="customScript"></a>customScript</h4><pre><code>#设置自定义js，会作用于所有页面。
+#例如如设置http重定向到https：
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var targetProtocol = &quot;https:&quot;;
+    if (window.location.protocol != targetProtocol)
+        window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
+&lt;/script&gt;</code></pre><h4 id="disableChangeTheme"><a href="#disableChangeTheme" class="headerlink" title="disableChangeTheme"></a>disableChangeTheme</h4><p>设置为1后游客将不显示右下角的主题切换功能</p>
+<h4 id="disableShowThumb"><a href="#disableShowThumb" class="headerlink" title="disableShowThumb"></a>disableShowThumb</h4><p>设置为1后将不显示缩略图的按钮和功能，对于云函数用户来说，建议设为1来关闭该功能，因为该功能可能点一下就是一分钱</p>
+<h4 id="hideFunctionalityFile"><a href="#hideFunctionalityFile" class="headerlink" title="hideFunctionalityFile"></a>hideFunctionalityFile</h4><p>设置为1后，游客浏览网盘时就会看不到read.md，head.md，head.ofm，foo.omf这些文件</p>
+<h5 id="设置顶部和底部说明文字"><a href="#设置顶部和底部说明文字" class="headerlink" title="设置顶部和底部说明文字"></a>设置顶部和底部说明文字</h5><p>在需要展示顶部说明的目录下新建一个head.md文件，在文件里写入说明内容即可，这是一个markdown文件，可以使用markdown语言进行书写。<br>底部说明说明文字对应的是readme.md文件，规则与顶部文字一样。</p>
+<h5 id="利用head-omf设置一言"><a href="#利用head-omf设置一言" class="headerlink" title="利用head.omf设置一言"></a>利用head.omf设置一言</h5><p>head.omf作用和head.md一样，区别是他不支持markdonw语言，但是支持html语言，可以写入html、css、js内容</p>
+<pre><code>&lt;p id=&quot;hitokoto&quot;&gt;:D 获取中...&lt;/p&gt;
+&lt;script&gt;
+    fetch(&#39;https://v1.hitokoto.cn&#39;)
+        .then(response =&gt; response.json())
+        .then(data =&gt; {
+            const hitokoto = document.getElementById(&#39;hitokoto&#39;)
+            hitokoto.innerText = data.hitokoto
+        })
+        .catch(console.error)
+&lt;/script&gt;</code></pre><h5 id="利用foot-omf设置Valine评论"><a href="#利用foot-omf设置Valine评论" class="headerlink" title="利用foot.omf设置Valine评论"></a>利用foot.omf设置Valine评论</h5><p>使用Valine需要先注册LeanCloud并实名认证，然后新建应用获取AppID和Key，不过这个实名认证比较繁琐</p>
+<pre><code>&lt;script src=&#39;//unpkg.com/valine/dist/Valine.min.js&#39;&gt;&lt;/script&gt;
+&lt;div id=&quot;vcomments&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    new Valine({
+        el: &#39;#vcomments&#39;,
+        appId: &#39;你获取的AppID&#39;,
+        appKey: &#39;你获取的AppKey&#39;
+    })
+&lt;/script&gt;</code></pre><h4 id="passfile"><a href="#passfile" class="headerlink" title="passfile"></a>passfile</h4><p>设置密码文件名，比如这里设置为password.txt，那么在某一个目录下新建一个password.txt文件，其中写入密码，这样任何人在浏览这个网盘目录时都需要输入相应密码后才能访问</p>
+<h4 id="domain-path"><a href="#domain-path" class="headerlink" title="domain_path"></a>domain_path</h4><p>当绑定多个域名时，可以使不同域名打开时访问不同目录。当然如果你只有一个域名也可以用，通过这种方式可以使当前域名访问一个指定子目录，和后面的public_path起到一样的作用。<br>下面是两个域名的设置方法，中间用|隔开，如果有多个域名只设置一个域名时，未设置的域名好像也会只访问该目录，要访问根目录dirname设置为/。</p>
+<pre><code>domain1.com:/dir1name|domain2.com:/dir2name</code></pre><h4 id="downloadencrypt"><a href="#downloadencrypt" class="headerlink" title="downloadencrypt"></a>downloadencrypt</h4><p>设置为1时启用该功能，这样在设置了密码的目录下的文件虽然无法在网页端浏览，但可以通过具体的文件链接进行下载</p>
+<h4 id="public-path"><a href="#public-path" class="headerlink" title="public_path"></a>public_path</h4><p>设置该盘的显示的根目录，默认为/，换个说法就是可以显示指定的文件夹，默认显示全部。<br>比如我们只想将网盘下的public文件夹内容作为网盘，可以设置为/public/。<br>有了这个功能，即使只有一个onedrive账号，我们也可以通过重复绑定同一个账号来生成多盘，然后每个盘的public_path设置为不同的路径，这样可以将一个盘的功能分开。<br>例如有一种特殊情况是我既想让游客上传文件，又想让游客看见上传后的文件目录，目前就只能通过这种方法将该目录设置到两个盘，一个盘作上传，一个盘作目录展示。</p>
+<h3 id="进阶设置"><a href="#进阶设置" class="headerlink" title="进阶设置"></a>进阶设置</h3><h4 id="设置网站ico图标"><a href="#设置网站ico图标" class="headerlink" title="设置网站ico图标"></a>设置网站ico图标</h4><p>将favicon.ico图片放在网盘根目录下，and新版的html主题只需要在绑定的第一个盘下面设置就行了</p>
+<pre><code>#当然我们也可以在customCss或customScript中进行全局设置
+
+&lt;link rel=&quot;icon&quot; href=&quot;https://www.google.com/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;</code></pre><h4 id="利用index-html设置自定义页面"><a href="#利用index-html设置自定义页面" class="headerlink" title="利用index.html设置自定义页面"></a>利用index.html设置自定义页面</h4><p>如果一个目录下有名为index.html的文件，则直接显示该文件，可以利用这个功能设置一个自定义页面或者用于隐藏一个特定页面，相当于部署了一个静态页面</p>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>]]></content>
+      <tags>
+        <tag>网盘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mikutap</title>
+    <url>/2021/02/24/mikutap/</url>
+    <content><![CDATA[]]></content>
       <categories>
-          
-          <category> steam </category>
-          
+        <category>网站</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>纪念播放量破42万</title>
-      <link href="/2020/04/27/bilibili/"/>
-      <url>/2020/04/27/bilibili/</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://img.imgdb.cn/item/60100cb03ffa7d37b3a0d296.jpg" alt="" loading="lazy"></p><p>虽然视频很水，投的也是转载，但还是值得留下点痕迹的一件事。</p>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>一招解决 steam验证登录信息失败问题</title>
+    <url>/2020/05/15/steamfalse/</url>
+    <content><![CDATA[<p>用steam客户端购买游戏或者订阅Mod的时候，会弹出【正在验证登录信息】的界面，然后登陆失败。</p>
+<a id="more"></a>
+
+<p>尽管你已经登陆了steam，但是好像没有登陆到steam服务器上，你就算是重新登录、翻墙、使用steamcommunity插件、使用加速器、电脑杀毒什么的都解决不了这个问题。而用浏览器登陆steam却能购买游戏。</p>
+<p><img src="https://file.moetu.org/images/2020/05/12/1223317c88a5c86be.png" alt="" loading="lazy"></p>
+<p><img src="https://file.moetu.org/images/2020/05/12/231c3cc1dc16133fd.png" alt="" loading="lazy"></p>
+<p>解决方法：如下图，选择steam客服端左上角的【帮助】菜单-&gt;steam客服-&gt;登陆steam</p>
+<p><img src="https://file.moetu.org/images/2020/05/12/3f532d6d875af328f.png" alt="" loading="lazy"></p>
+<p>在此成功登陆后即可解决</p>
+<p>若出现乱码，请用加速器重试。</p>
+]]></content>
       <categories>
-          
-          <category> 纪念播放量破42万 </category>
-          
+        <category>steam</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>使用YOU-GET下载视频</title>
-      <link href="/2020/04/17/youget/"/>
-      <url>/2020/04/17/youget/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">You-Get</a>是一个基于 Python 3 的下载工具。</p><p>使用 You-Get 可以很轻松的下载到网络上的视频、图片及音乐。</p><a id="more"></a><blockquote><p>项目主页：<a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">https://github.com/soimort/you-get</a><br>You-Get 主页：<a href="https://you-get.org/" target="_blank" rel="noopener">https://you-get.org/</a><br>You-Get 原版中文说明：<a href="https://github.com/soimort/you-get/wiki/中文说明/" target="_blank" rel="noopener">https://github.com/soimort/you-get/wiki/中文说明/</a><br>作者：<a href="https://github.com/soimort" target="_blank" rel="noopener">soimort</a></p><p>本文引自博客园</p></blockquote><p>You-Get</p><p>Python 是一款跨平台编程语言，Liunx 以及 Mac OS 下都可以使用，以下为windows的操作。</p><hr><h1 id="0x01-使用-You-Get-下载视频"><a href="#0x01-使用-You-Get-下载视频" class="headerlink" title="0x01 使用 You-Get 下载视频"></a>0x01 使用 You-Get 下载视频</h1><h4 id="Step1-下载与安装-Python-3"><a href="#Step1-下载与安装-Python-3" class="headerlink" title="Step1 下载与安装 Python 3"></a>Step1 下载与安装 Python 3</h4><p>1.访问<a href="https://www.python.org/" target="_blank" rel="noopener"> Python 官方网站</a>下载对应版本的Python，You-Get基于Python 3，建议<a href="https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe" target="_blank" rel="noopener">下载 Python 3.5.1</a>。<br>2.安装 Python 3.5.1，注意勾选<code>Add Python 3.5 to PATH</code></p><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoRxwTZAOsasczgmCm1Dpu5tcj*RduhqSXB7jh3Rzj2JSiQJHLppoTrnrnAUxbKM7GqTboppHvNkt8IGq2LOg9aPs!/r" alt="" loading="lazy"></p><p>勾选</p><p>3.按<code>Win+R</code>键打开运行，输入<code>cmd</code>，再输入<code>python</code>并回车执行，如果出现如下界面，则代表安装成功。</p><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoR2P6iPagIGmIXw2wrV4R1pWNqSQHXfwnEwxOm.PSnfasNRa1IUAYG9D3xa2FQGqqQ37ybvzWeJJDFGFF6soVkTs!/r" alt="" loading="lazy"></p><p>安装成功</p><h4 id="Step2-安装You-Get"><a href="#Step2-安装You-Get" class="headerlink" title="Step2 安装You-Get"></a>Step2 安装You-Get</h4><p>1.打开<code>cmd</code>，输入命令并执行</p><pre><code>pip3 install you-get</code></pre><p>2.输入命令，检测 You-Get 是否安装成功</p><pre><code>you-get</code></pre><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoRy8nznyncBdRQzweqWFf1Jy7xm3lkxt81Jz448H4UYktzNwsn6VhCJW6AlNifyR7EUcABZf4SOPLk3j2082hHn8!/r" alt="" loading="lazy"></p><p>you-get安装成功</p><h4 id="Step3-开始下载吧"><a href="#Step3-开始下载吧" class="headerlink" title="Step3 开始下载吧"></a>Step3 开始下载吧</h4><p>打开<code>cmd</code>输入命令</p><pre><code>you-get [视频地址]</code></pre><p><em>e.g.</em>下载一段<a href="http://www.meipai.com/media/454570774" target="_blank" rel="noopener">美拍视频</a><br>输入如下命令</p><pre><code>you-get http://www.meipai.com/media/454570774</code></pre><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoR7ZyAzDApEfkWNjEn7uSBOrWwYPOaW*96wuBlVIaFyArWrNRBByoA3WUBw.RoS56OVIa*LOXL.YsvJn5y4sZVyk!/r" alt="" loading="lazy"></p><p>点击左上角可以快速粘贴</p><p>文件保存在<code>C:\Users\用户名</code>目录下，如果想自定义保存位置，使用如下命令即可</p><p><em>e.g.</em>下载一段<a href="http://www.meipai.com/media/454570774" target="_blank" rel="noopener">美拍视频</a>并保存在<code>E:\Desktop</code></p><pre><code>you-get -o E:/Desktop http://www.meipai.com/media/454570774</code></pre><hr><h1 id="0x02-You-Get-有关视频的其他用法"><a href="#0x02-You-Get-有关视频的其他用法" class="headerlink" title="0x02 You-Get 有关视频的其他用法"></a>0x02 You-Get 有关视频的其他用法</h1><p>You-Get仅用来下载视频显得有些大材小用了，作者也给出了You-Get的一些其他用法，这里着重介绍几个。</p><h4 id="1-选择视频下载格式和清晰度"><a href="#1-选择视频下载格式和清晰度" class="headerlink" title="1.选择视频下载格式和清晰度"></a>1.选择视频下载格式和清晰度</h4><p>通常网页视频的格式为<code>.flv</code>，但部分网站会提供好几种视频格式，我们可以使用 You-Get 下载这些视频。</p><p><em>e.g.</em>下载一段<a href="http://v.youku.com/v_show/id_XMTQ2NzQyMjY1Ng.html" target="_blank" rel="noopener">优酷视频</a><br>1.查看当前视频的清晰度和格式</p><pre><code>you-get -i http://v.youku.com/v_show/id_XMTQ2NzQyMjY1Ng.html</code></pre><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoR0lwm8NwDilADKU*TByWLeA0KH0BUCgbiiCG6BtXi26N.et2Jv6gR9uXORiiNJhk4FMICaWUoI8o.Ort0oHl.Jc!/r" alt="" loading="lazy"></p><p>视频提供三种格式，三种清晰度</p><p>2.选择需要下载的清晰度及格式</p><pre><code>you-get --format=hd2 http://v.youku.com/v_show/id_XMTQ2NzQyMjY1Ng.html</code></pre><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoRwchoCM80f8MKgqQvVjNfTNn4SrxKG*inoH.9cc0NwHxVvpYbCWoO9HpwbwluxbXZJtyX0uvY60arBDCbiyU5lQ!/r" alt="" loading="lazy"></p><p>下载成功</p><iframe src="//player.bilibili.com/player.html?aid=752517785&bvid=BV1Uk4y1d7Wj&cid=173862113&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 黑科技 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+  </entry>
+  <entry>
+    <title>易班自动打卡</title>
+    <url>/2021/01/08/yiban/</url>
+    <content><![CDATA[<p>项目地址：<a href="https://gqxi.lanzous.com/iQSeok60sqf" target="_blank" rel="noopener">蓝奏云链接</a></p>
+<p>解压下载的源程序，</p>
+<p>找到目录中的main.py文件，</p>
+<h5 id="修改信息"><a href="#修改信息" class="headerlink" title="修改信息"></a>修改信息</h5><p><img src="https://cdn.jsdelivr.net/gh/awslnotbad/picture@main/img/%E6%88%AA%E5%9B%BE_20215019125054.png" alt="截图_20215019125054" loading="lazy"></p>
+<p>修改完成后</p>
+<h5 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h5><h6 id="1创建虚拟环境"><a href="#1创建虚拟环境" class="headerlink" title="#1创建虚拟环境"></a>#1创建虚拟环境</h6><pre><code class="shell">python3 -m venv venv</code></pre>
+<h6 id="2安装必要依赖"><a href="#2安装必要依赖" class="headerlink" title="#2安装必要依赖"></a>#2安装必要依赖</h6><pre><code class="shell">pip3 install -r requirements.txt -i https://pypi.douban.com/simple</code></pre>
+<h6 id="3启动打卡"><a href="#3启动打卡" class="headerlink" title="#3启动打卡"></a>#3启动打卡</h6><pre><code>python3 main.py</code></pre><h6 id="打卡成功"><a href="#打卡成功" class="headerlink" title="打卡成功"></a>打卡成功</h6><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0u4VWl/TmEUgtj9EK6.7V8ajmQrEORfm*2tNddVPgt0S6okVZLzyskeyAs7EsMfhh0ev.JsMbtHjKGAgPo.tmmelNZiLptCnq9HvANGZ49gBWjaEsE!/r" alt="" loading="lazy"></p>
+<h6 id="这里并没有实现全自动化定点打卡"><a href="#这里并没有实现全自动化定点打卡" class="headerlink" title="这里并没有实现全自动化定点打卡"></a>这里并没有实现全自动化定点打卡</h6><p>如果想这样做的话，</p>
+<p>可以买个服务器或者电脑不关机挂着程序，</p>
+<p>然后再设计定点运行程序。</p>
+]]></content>
+      <tags>
+        <tag>黑科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>B站如何更换动态头像</title>
+    <url>/2020/06/27/gif/</url>
+    <content><![CDATA[<p>首先准备一个180*180大小的GIF图片。<br>然后通过 <code>https://www.upyun.com/webp</code> 上传保存好webp格式。<br>将下面的代码复制到浏览器书签里面</p>
+<pre><code>javascript:void (()=&gt;{var a=document.createElement(&quot;input&quot;);a.type=&quot;file&quot;;a.onchange=function(){if(a.files.length&gt;0){var b=new FormData();b.append(&quot;dopost&quot;,&quot;save&quot;);b.append(&quot;Displayrank&quot;,&quot;10000&quot;);b.append(&quot;face&quot;,a.files[0]);var c=new XMLHttpRequest();c.withCredentials=!!1;c.open(&quot;POST&quot;,&quot;https://api.bilibili.com/x/member/web/face/update?csrf=&quot;+document.cookie.match(/bili_jct=(.+?);/)[1]);c.onload=function(){var d=c.response;try{d=JSON.parse(d);switch(d.code){case 0:alert(&quot;更新成功，刷新页面即可&quot;);break;case 40012:alert(&quot;头像格式错误&quot;);break;case 40013:alert(&quot;头像大小不能超过2M&quot;);break;default:alert(&quot;未知返回&quot;+c.response);console.error(c.response, c);break}}catch(e){console.error(e, c, d);alert(&quot;解析返回数据时出现错误，具体看console&quot;)}};c.onerror=function(e){console.error(e,c);alert(&quot;请求出现错误，具体看console&quot;);};c.send(b)}else{alert(&quot;请选择一个文件&quot;)}};a.click();})()</code></pre><p>然后打开B站更换头像的网页，点击书签，选择转好的webp格式图片，然后点击提交，上传成功，刷新网页即可查看效果。</p>
+<p><img src="https://pic.downk.cc/item/5f4fbc31160a154a67fe6108.gif" alt="" loading="lazy"></p>
+<p>目前此方法已失效[doge]</p>
+]]></content>
+      <tags>
+        <tag>哔哩哔哩</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Win10桌面优化&amp;提高效率</title>
+    <url>/2020/05/27/win10/</url>
+    <content><![CDATA[<h3 id="系统设置："><a href="#系统设置：" class="headerlink" title="系统设置："></a>系统设置：</h3><h5 id="一-、简化任务栏"><a href="#一-、简化任务栏" class="headerlink" title="一 、简化任务栏"></a>一 、简化任务栏</h5><ul>
+<li><p>仅显示搜索图标</p>
+</li>
+<li><p>关闭人脉，工作区按钮</p>
+</li>
+</ul>
+<h5 id="二-、使用磁贴"><a href="#二-、使用磁贴" class="headerlink" title="二 、使用磁贴"></a>二 、使用磁贴</h5><blockquote>
+<p>准备工作</p>
+<p>在设置-个性化-开始中</p>
+<p>勾选“全屏开始屏幕”，勾选显示更多磁贴</p>
+</blockquote>
+<ul>
+<li><p>将自己不常用的的软件固定到磁贴，并进行分类</p>
+</li>
+<li><p>常用的软件固定到任务栏，譬如浏览器</p>
+</li>
+<li><p>按WIN键或鼠标点击菜单键即可弹出磁贴</p>
+</li>
+</ul>
+<h3 id="配合软件："><a href="#配合软件：" class="headerlink" title="配合软件："></a>配合软件：</h3><h5 id="一-、任务栏透明化"><a href="#一-、任务栏透明化" class="headerlink" title="一 、任务栏透明化"></a>一 、任务栏透明化</h5><ul>
+<li><h6 id="推荐：TranslucentTB"><a href="#推荐：TranslucentTB" class="headerlink" title="推荐：TranslucentTB"></a>推荐：TranslucentTB</h6><p>可在微软商店中下载</p>
+<p>安装后基本不用更改设置，右键勾上Open at boot(开机自启)即可</p>
+</li>
+</ul>
+<h5 id="二-、OCR软件"><a href="#二-、OCR软件" class="headerlink" title="二 、OCR软件"></a>二 、OCR软件</h5><ul>
+<li><h6 id="推荐：天若OCR"><a href="#推荐：天若OCR" class="headerlink" title="推荐：天若OCR"></a>推荐：天若OCR</h6></li>
+</ul>
+<p>功能：文本识别、表格转换、竖排识别、公式识别、矫正识别、高级识别、识别翻译、识别搜索、截图功能(含录制gif功能)</p>
+<h5 id="三、文件预览软件"><a href="#三、文件预览软件" class="headerlink" title="三、文件预览软件"></a>三、文件预览软件</h5><ul>
+<li><h6 id="推荐：Quicklook"><a href="#推荐：Quicklook" class="headerlink" title="推荐：Quicklook"></a>推荐：Quicklook</h6></li>
+</ul>
+<p>可在微软商店中下载</p>
+<p>配合其插件</p>
+<p>点击文件，按空格即可预览：Pdf 、word、TXT、图片、视频等，大大节省需要打开软件的时间</p>
+<h5 id="四、剪贴板管理软件"><a href="#四、剪贴板管理软件" class="headerlink" title="四、剪贴板管理软件"></a>四、剪贴板管理软件</h5><ul>
+<li><h6 id="推荐：Ditto"><a href="#推荐：Ditto" class="headerlink" title="推荐：Ditto"></a>推荐：Ditto</h6><p>功能强大的剪贴板管理器</p>
+<p>持多种格式的数据，包括文本、图片和文件路径</p>
+<p>可快速搜索出你复制过的数据</p>
+<p>可自行设置保存的数量和自动清除时间</p>
+<p>摆脱一条条地复制粘贴信息的困扰</p>
+<p>复制粘贴从此变得更加简单高效</p>
+</li>
+</ul>
+<h5 id="五、安全软件"><a href="#五、安全软件" class="headerlink" title="五、安全软件"></a>五、安全软件</h5><ul>
+<li><h6 id="推荐：火绒安全"><a href="#推荐：火绒安全" class="headerlink" title="推荐：火绒安全"></a>推荐：火绒安全</h6></li>
+</ul>
+<p>一款 强悍、 轻巧、 干净的安全软件 </p>
+<p>我更愿称之为拦截弹窗神器，将广告弹窗拒之千里，桌面再也不会出现一堆的乱七八糟的东西</p>
+<h5 id="六、壁纸软件"><a href="#六、壁纸软件" class="headerlink" title="六、壁纸软件"></a>六、壁纸软件</h5><ul>
+<li><h6 id="推荐：wallpaper-engine"><a href="#推荐：wallpaper-engine" class="headerlink" title="推荐：wallpaper engine"></a>推荐：wallpaper engine</h6></li>
+</ul>
+<p>拥有强大强大的创意工坊资源，<del>深受狼友们喜欢</del></p>
+<p>这款软件可玩度还十分的高</p>
+<p>不论是从网页导入，直接把你喜欢的网站设为桌面</p>
+<p>还是用本地的html文件设为桌面进行一些简单的互动</p>
+<p>又或者是把可执行程序exe设为桌面等等</p>
+<p>有了它，你的桌面不再是不可交互的静态的图片或者简单的视频</p>
+<h5 id="七、卸载软件"><a href="#七、卸载软件" class="headerlink" title="七、卸载软件"></a>七、卸载软件</h5><ul>
+<li><h6 id="推荐：geek"><a href="#推荐：geek" class="headerlink" title="推荐：geek"></a>推荐：geek</h6><p>快速智能、简单洁净、强效清除</p>
+<p>是一款很强大、体积还很小的卸载神器</p>
+</li>
+</ul>
+<h5 id="八、搜索软件"><a href="#八、搜索软件" class="headerlink" title="八、搜索软件"></a>八、搜索软件</h5><ul>
+<li><h6 id="推荐：Everything"><a href="#推荐：Everything" class="headerlink" title="推荐：Everything"></a>推荐：Everything</h6><p>可以快速的搜索到你想要找的文件，非常方便的一款搜索工具</p>
+</li>
+</ul>
+<h5 id="九、清理软件"><a href="#九、清理软件" class="headerlink" title="九、清理软件"></a>九、清理软件</h5><ul>
+<li><h6 id="推荐：Dism"><a href="#推荐：Dism" class="headerlink" title="推荐：Dism++"></a>推荐：Dism++</h6></li>
+</ul>
+<p>清理系统垃圾 </p>
+<p>备份/还原系统  </p>
+<p>优化系统等等</p>
+<p> 很不错的一款系统工具</p>
+<h5 id="十、网盘"><a href="#十、网盘" class="headerlink" title="十、网盘"></a>十、网盘</h5><ul>
+<li><h6 id="推荐：Onedrive"><a href="#推荐：Onedrive" class="headerlink" title="推荐：Onedrive"></a>推荐：Onedrive</h6></li>
+</ul>
+<p>Windows10自带 不限速</p>
+<p>普通用户虽然只有5G空间</p>
+<p>但是用来备份一些会用到但是又不经常用的小文件还是很方便的</p>
+<p>可以将文件完全备份至云端，需要时下载，节约空间</p>
+<p>而且还有可以与手机同步，十分不错。</p>
+<h5 id="十一、下载软件"><a href="#十一、下载软件" class="headerlink" title="十一、下载软件"></a>十一、下载软件</h5><ul>
+<li><h6 id="推荐：IDM"><a href="#推荐：IDM" class="headerlink" title="推荐：IDM"></a>推荐：IDM</h6><p>非常好用的一款下载软件</p>
+<p>可以下载网页上的视频音频等等</p>
+<p>十分推荐懂的都懂。</p>
+</li>
+</ul>
+<h5 id="十二、解压缩软件"><a href="#十二、解压缩软件" class="headerlink" title="十二、解压缩软件"></a>十二、解压缩软件</h5><ul>
+<li><h6 id="推荐：WinRAR-无广告版"><a href="#推荐：WinRAR-无广告版" class="headerlink" title="推荐：WinRAR(无广告版)"></a>推荐：WinRAR(无广告版)</h6><p>这类软件没什么好说的</p>
+<p>曾经也用过一段时间bandizip,也可以，任君选择</p>
+</li>
+</ul>
+<h5 id="十三、效率软件"><a href="#十三、效率软件" class="headerlink" title="十三、效率软件"></a>十三、效率软件</h5><ul>
+<li><h6 id="推荐软件：Quicker"><a href="#推荐软件：Quicker" class="headerlink" title="推荐软件：Quicker"></a>推荐软件：Quicker</h6></li>
+</ul>
+<p>功能：自动加载动作页、快速打开、模拟键盘输入、组合动作、云端存储、分享动作。</p>
+<p>还有各种动作库，功能应有尽有，不夸张的说，每次进动作库你都能找到新的好东西。</p>
+<p>再配合上面的软件</p>
+<p>你可以</p>
+<h6 id="一键完成以下操作"><a href="#一键完成以下操作" class="headerlink" title="一键完成以下操作"></a><strong>一键完成以下操作</strong></h6><ul>
+<li><p>文字OCR识别</p>
+</li>
+<li><p>截图(可配合QQ长截图、录制GIF)</p>
+</li>
+<li><p>打开软件</p>
+</li>
+<li><p>打开网站</p>
+</li>
+<li><p>定时关机</p>
+</li>
+<li><p>搜索文字内容</p>
+</li>
+<li><p>显示/隐藏桌面图标等等……(实在太多了，一时罗列不清，还请亲自体验)</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Win10相关</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用YOU-GET下载视频</title>
+    <url>/2020/04/17/youget/</url>
+    <content><![CDATA[<p><a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">You-Get</a>是一个基于 Python 3 的下载工具。</p>
+<p>使用 You-Get 可以很轻松的下载到网络上的视频、图片及音乐。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>项目主页：<a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">https://github.com/soimort/you-get</a><br>You-Get 主页：<a href="https://you-get.org/" target="_blank" rel="noopener">https://you-get.org/</a><br>You-Get 原版中文说明：<a href="https://github.com/soimort/you-get/wiki/中文说明/" target="_blank" rel="noopener">https://github.com/soimort/you-get/wiki/中文说明/</a><br>作者：<a href="https://github.com/soimort" target="_blank" rel="noopener">soimort</a></p>
+<p>本文引自博客园</p>
+</blockquote>
+<p>You-Get</p>
+<p>Python 是一款跨平台编程语言，Liunx 以及 Mac OS 下都可以使用，以下为windows的操作。</p>
+<hr>
+<h1 id="0x01-使用-You-Get-下载视频"><a href="#0x01-使用-You-Get-下载视频" class="headerlink" title="0x01 使用 You-Get 下载视频"></a>0x01 使用 You-Get 下载视频</h1><h4 id="Step1-下载与安装-Python-3"><a href="#Step1-下载与安装-Python-3" class="headerlink" title="Step1 下载与安装 Python 3"></a>Step1 下载与安装 Python 3</h4><p>1.访问<a href="https://www.python.org/" target="_blank" rel="noopener"> Python 官方网站</a>下载对应版本的Python，You-Get基于Python 3，建议<a href="https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe" target="_blank" rel="noopener">下载 Python 3.5.1</a>。<br>2.安装 Python 3.5.1，注意勾选<code>Add Python 3.5 to PATH</code></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoRxwTZAOsasczgmCm1Dpu5tcj*RduhqSXB7jh3Rzj2JSiQJHLppoTrnrnAUxbKM7GqTboppHvNkt8IGq2LOg9aPs!/r" alt="" loading="lazy"></p>
+<p>勾选</p>
+<p>3.按<code>Win+R</code>键打开运行，输入<code>cmd</code>，再输入<code>python</code>并回车执行，如果出现如下界面，则代表安装成功。</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoR2P6iPagIGmIXw2wrV4R1pWNqSQHXfwnEwxOm.PSnfasNRa1IUAYG9D3xa2FQGqqQ37ybvzWeJJDFGFF6soVkTs!/r" alt="" loading="lazy"></p>
+<p>安装成功</p>
+<h4 id="Step2-安装You-Get"><a href="#Step2-安装You-Get" class="headerlink" title="Step2 安装You-Get"></a>Step2 安装You-Get</h4><p>1.打开<code>cmd</code>，输入命令并执行</p>
+<pre><code>pip3 install you-get</code></pre><p>2.输入命令，检测 You-Get 是否安装成功</p>
+<pre><code>you-get</code></pre><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoRy8nznyncBdRQzweqWFf1Jy7xm3lkxt81Jz448H4UYktzNwsn6VhCJW6AlNifyR7EUcABZf4SOPLk3j2082hHn8!/r" alt="" loading="lazy"></p>
+<p>you-get安装成功</p>
+<h4 id="Step3-开始下载吧"><a href="#Step3-开始下载吧" class="headerlink" title="Step3 开始下载吧"></a>Step3 开始下载吧</h4><p>打开<code>cmd</code>输入命令</p>
+<pre><code>you-get [视频地址]</code></pre><p><em>e.g.</em>下载一段<a href="http://www.meipai.com/media/454570774" target="_blank" rel="noopener">美拍视频</a><br>输入如下命令</p>
+<pre><code>you-get http://www.meipai.com/media/454570774</code></pre><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoR7ZyAzDApEfkWNjEn7uSBOrWwYPOaW*96wuBlVIaFyArWrNRBByoA3WUBw.RoS56OVIa*LOXL.YsvJn5y4sZVyk!/r" alt="" loading="lazy"></p>
+<p>点击左上角可以快速粘贴</p>
+<p>文件保存在<code>C:\Users\用户名</code>目录下，如果想自定义保存位置，使用如下命令即可</p>
+<p><em>e.g.</em>下载一段<a href="http://www.meipai.com/media/454570774" target="_blank" rel="noopener">美拍视频</a>并保存在<code>E:\Desktop</code></p>
+<pre><code>you-get -o E:/Desktop http://www.meipai.com/media/454570774</code></pre><hr>
+<h1 id="0x02-You-Get-有关视频的其他用法"><a href="#0x02-You-Get-有关视频的其他用法" class="headerlink" title="0x02 You-Get 有关视频的其他用法"></a>0x02 You-Get 有关视频的其他用法</h1><p>You-Get仅用来下载视频显得有些大材小用了，作者也给出了You-Get的一些其他用法，这里着重介绍几个。</p>
+<h4 id="1-选择视频下载格式和清晰度"><a href="#1-选择视频下载格式和清晰度" class="headerlink" title="1.选择视频下载格式和清晰度"></a>1.选择视频下载格式和清晰度</h4><p>通常网页视频的格式为<code>.flv</code>，但部分网站会提供好几种视频格式，我们可以使用 You-Get 下载这些视频。</p>
+<p><em>e.g.</em>下载一段<a href="http://v.youku.com/v_show/id_XMTQ2NzQyMjY1Ng.html" target="_blank" rel="noopener">优酷视频</a><br>1.查看当前视频的清晰度和格式</p>
+<pre><code>you-get -i http://v.youku.com/v_show/id_XMTQ2NzQyMjY1Ng.html</code></pre><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoR0lwm8NwDilADKU*TByWLeA0KH0BUCgbiiCG6BtXi26N.et2Jv6gR9uXORiiNJhk4FMICaWUoI8o.Ort0oHl.Jc!/r" alt="" loading="lazy"></p>
+<p>视频提供三种格式，三种清晰度</p>
+<p>2.选择需要下载的清晰度及格式</p>
+<pre><code>you-get --format=hd2 http://v.youku.com/v_show/id_XMTQ2NzQyMjY1Ng.html</code></pre><p><img src="http://r.photo.store.qq.com/psc?/V10g60xG0JEjpi/c5Brg5wCEGO6zAda9BhoRwchoCM80f8MKgqQvVjNfTNn4SrxKG*inoH.9cc0NwHxVvpYbCWoO9HpwbwluxbXZJtyX0uvY60arBDCbiyU5lQ!/r" alt="" loading="lazy"></p>
+<p>下载成功</p>
+<iframe src="//player.bilibili.com/player.html?aid=752517785&bvid=BV1Uk4y1d7Wj&cid=173862113&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
+      <tags>
+        <tag>黑科技</tag>
+      </tags>
+  </entry>
 </search>
