@@ -61,7 +61,7 @@
         </section>
         <article class="post-content">
         
-            <blockquote>这篇文章上次修改于 1230 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
+            <blockquote>这篇文章上次修改于 1377 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
         
             <p>首先准备一个180*180大小的GIF图片。<br>然后通过 <code>https://www.upyun.com/webp</code> 上传保存好webp格式。<br>将下面的代码复制到浏览器书签里面</p>
 <pre><code>javascript:void (()=&gt;&#123;var a=document.createElement(&quot;input&quot;);a.type=&quot;file&quot;;a.onchange=function()&#123;if(a.files.length&gt;0)&#123;var b=new FormData();b.append(&quot;dopost&quot;,&quot;save&quot;);b.append(&quot;Displayrank&quot;,&quot;10000&quot;);b.append(&quot;face&quot;,a.files[0]);var c=new XMLHttpRequest();c.withCredentials=!!1;c.open(&quot;POST&quot;,&quot;https://api.bilibili.com/x/member/web/face/update?csrf=&quot;+document.cookie.match(/bili_jct=(.+?);/)[1]);c.onload=function()&#123;var d=c.response;try&#123;d=JSON.parse(d);switch(d.code)&#123;case 0:alert(&quot;更新成功，刷新页面即可&quot;);break;case 40012:alert(&quot;头像格式错误&quot;);break;case 40013:alert(&quot;头像大小不能超过2M&quot;);break;default:alert(&quot;未知返回&quot;+c.response);console.error(c.response, c);break&#125;&#125;catch(e)&#123;console.error(e, c, d);alert(&quot;解析返回数据时出现错误，具体看console&quot;)&#125;&#125;;c.onerror=function(e)&#123;console.error(e,c);alert(&quot;请求出现错误，具体看console&quot;);&#125;;c.send(b)&#125;else&#123;alert(&quot;请选择一个文件&quot;)&#125;&#125;;a.click();&#125;)()
@@ -124,7 +124,7 @@
             </div>
         </section>
         <section class="sub-footer">
-            <p>© 2020-2023 <a href="/">随风的小站</a>. All Rights Reserved. </p>
+            <p>© 2020-2024 <a href="/">随风的小站</a>. All Rights Reserved. </p>
         </section>
     </div>
 </footer>
