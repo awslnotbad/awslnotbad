@@ -1,0 +1,23 @@
+author: '夏末随风' # 作者名称
+author_avatar: 'https://pic.imgdb.cn/item/64c5e5ae1ddac507cc10aa56.jpg' # 作者头像
+author_text: '夏末随风' # 作者信息
+social: # 社交链接
+  #- title: 'Github'
+  #  icon: 'github'
+   # link: 'https://github.com/'
+  - title: 'Steam'
+    icon: 'steam'
+    link: 'https://steamcommunity.com/id/awslnotbad/'
+  - title: 'qq'
+    icon: 'qq'
+    link: 'http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ItI4yKa3pzSMSuk3erphxVjPZVBoG3dv&authKey=AD6E2Qu0qk24HnWgdwlypDWBRwJwve2kTeBxPXsu4lH2SG3yl6745lUXH4LvVAYF&noverify=0&group_code=791780458'
+  - title: '首页'
+    icon: 'home'
+    link: 'https://awslnotbad.cn/'
+background: 'https://api.paugram.com/wallpaper/?source=gh' # 主题背景
+menu: # 页眉菜单项目
+  '关于我': /about
+  '朋友们': /friends
+config:
+  copyright: true # 复制的时候弹出保留原站链接说明
+  night: true # 自动切换夜间模式

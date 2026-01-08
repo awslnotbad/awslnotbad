@@ -1,0 +1,26 @@
+<main>
+    <div class="wrap min">
+        <section class="home-title">
+            <h1><%= config.title %></h1>
+            <span><%= config.description %></span>
+            <%- partial("_partial/social") %>
+        </section>
+        <%- partial("_partial/archive-list") %>
+        <section class="page-navigator">
+            <%- paginator({
+                prev_text: "«",
+                next_text: "»"
+            }) %>
+        </section>
+		</script>  <script> window.onfocus = function () { 	document.title = '要走的人终究是留不住~~'; 	setTimeout(function(){ 		document.title = '随风的小站'; 	}, 1500); }; window.onblur = function () { 	document.title = '等等，你别走啊！！'; }; </script>
+<script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+<div id="vcomments"></div>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '6HdJKsx8jjs65tDXVWUhqitI-gzGzoHsz',
+        appKey: 'hWg1ibNMVawhkE5asSYdFn1c'
+    })
+</script>
+    </div>
+</main>
